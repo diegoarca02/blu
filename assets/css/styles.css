@@ -37,15 +37,18 @@
     background-color: #fdf6ed;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: height 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-    transform: translateY(-20px); /* Añadido para movimiento inicial */
-    transition-delay: 0.2s; /* Agrega un retraso al inicio de la animación */
+    transform: translateY(-20px); /* Mueve ligeramente hacia arriba cuando está cerrado */
+    transition-delay: 0.2s; /* Agrega un retraso */
+    overflow: hidden; /* Asegura que el contenido no sea visible */
+    pointer-events: none; /* Desactiva la interacción mientras no está visible */
 }
 
 .navbar-menu.show {
     height: 100vh;
-    transform: translateY(0); /* Suaviza el movimiento al mostrar */
-    transition-delay: 0.2s; /* Sin retraso al mostrar */
+    transform: translateY(0); /* Restablece el movimiento */
+    pointer-events: auto; /* Permite la interacción cuando está visible */
 }
+
 
 .navbar-menu.hide {
     height: 0vh;
