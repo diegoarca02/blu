@@ -1,22 +1,31 @@
+const menuTl = gsap.timeline({ paused: true, reversed: true });
 
+menuTl.to(".navbar-menu", {
+  height: "100%", // Expande el menú
+  duration: 0.8,
+});
 
-function animateBars(){
-    let bar_1 = document.querySelector('.icon-bar-1');
-    let bar_2 = document.querySelector('.icon-bar-2');
-    let bar_3 = document.querySelector('.icon-bar-3');
+let isMenuOpen = false;
+function animateBars() {
+    const tl = gsap.timeline({ defaults: { duration: 0.3, ease: "power2.inOut" } });
 
-    bar_1.classList.toggle('icon-bar-1-active');
-    bar_2.classList.toggle('icon-bar-2-active');
-    bar_3.classList.toggle('icon-bar-3-active');
-
-    const container = document.querySelector('.navbar-menu');
-    const isVisible = container.classList.contains('show');
-    
-    if (isVisible) {
-        container.classList.remove('show');
-        container.classList.add('hide');
+    if (!isMenuOpen) {
+        // Animar a X
+        tl.to(".line-1", { y: 10, rotate: 45 }) // Línea superior baja y rota
+          .to(".line-2", { opacity: 0 }, "<") // Línea del medio desaparece
+          .to(".line-3", { y: -15.5, rotate: -45 }, "<"); // Línea inferior sube y rota
     } else {
-        container.classList.remove('hide');
-        container.classList.add('show');
+        // Restaurar a menú
+        tl.to(".line-1", { y: 0, rotate: 0 }) // Línea superior regresa
+          .to(".line-2", { opacity: 1 }, "<") // Línea del medio reaparece
+          .to(".line-3", { y: 0, rotate: 0 }, "<"); // Línea inferior regresa
+    }
+
+    isMenuOpen = !isMenuOpen; // Alterna el estado
+
+    if (menuTl.reversed()) {
+        menuTl.play();
+    } else {
+        menuTl.reverse();
     }
 }

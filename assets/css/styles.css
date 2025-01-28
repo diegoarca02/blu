@@ -1,65 +1,73 @@
-.btn-menu {
-    width: 50px;
-    height: auto;
-    padding: 0px;
-    border: none;
-    z-index: 2;
-    position: relative;
-    background: white;
-}
-
-.btn-menu span {
-    width: 100%;  /* Ancho de las barras */
-    height: 2px;  /* Altura de las barras */
-    display: block;
-    margin-top: 6px;
-    background-color: #000;
-    transition: all 300ms;
-    transform-origin: center;  /* Aseguramos que la rotación ocurra desde el centro */
-}
-
-.icon-bar-1-active {
-    transform: rotate(45deg) translate(6px, 6px);  /* Ajuste más preciso para la X */
-}
-
-.icon-bar-2-active {
-    opacity: 0;
-    margin-left: -20px;
-}
-
-.icon-bar-3-active {
-    transform: rotate(-45deg) translate(5px, -5px);  /* Ajuste más preciso para la X */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 .navbar-menu {
     width: 100%;
-    height: 0vh;
+    height: 0;
     background-color: #fdf6ed;
+    overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: height 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-    transform: translateY(-20px); /* Mueve ligeramente hacia arriba cuando está cerrado */
-    transition-delay: 0.2s; /* Agrega un retraso */
-    overflow: hidden; /* Asegura que el contenido no sea visible */
-    pointer-events: none; /* Desactiva la interacción mientras no está visible */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
+.btn-menu {
+    width: 50px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.btn-menu .line {
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    transform-origin: center; /* Asegura que la rotación sea desde el centro */
+    transition: all 0.3s ease;
+}
+/* Contenedor del botón */
+.btn-menu-container {
+    width: 80px;
+    height: 70px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Menú animado */
 .navbar-menu.show {
     height: 100vh;
-    transform: translateY(0); /* Restablece el movimiento */
-    pointer-events: auto; /* Permite la interacción cuando está visible */
+    transition: height 0.8s ease;
 }
 
+.w60{
+    width: 60%;
+}   
 
-.navbar-menu.hide {
-    height: 0vh;
-    transform: translateY(-20px); /* Suaviza el movimiento al ocultar */
-    transition-delay: 0.2s; /* Retraso al ocultar */
+.d-flex > .d-flex {
+    flex-grow: 1; /* Cada hijo ocupa el mismo alto */
+    border: 1px solid #dee2e6; /* Borde similar a table-bordered */
 }
 
-.btn-menu-container {
-    width: 80px; 
-    height: 70px; 
-    background: white;
-    z-index: 2;
-    border-radius: 5px; 
+.d-flex > .d-flex:not(:last-child) {
+    border-bottom: 0; /* Evitar bordes dobles entre filas */
+}
+
+.d-flex > .d-flex:last-child {
+    border-bottom: 1px solid #dee2e6; /* Agregar borde inferior al último hijo */
+}
+
+.border-none{
+    border: none !important
 }

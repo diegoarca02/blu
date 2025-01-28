@@ -9,28 +9,83 @@
 </head>
 <body>
     <div class="navbar-menu position-absolute w-100 hide" >
-        <div class="p-5">
-            <div class="d-flex justify-content-start">
-                <h1 class="text-dark">Soul</h1>
-                <h1 class="text-dark">Soul</h1>
-            </div>
+        <div class="h-100">
+            <div class="d-flex flex-column justify-content-between h-100">
+                <!-- Primer hijo -->
+                <div class="d-flex">
+                  <div class="w60 p-5">
+                        <img src="assets/images/logo-b.webp" alt="" style="width: 150px;">
+                  </div>
+                  <div></div>
+                </div>
+            
+                <!-- Segundo hijo -->
+                <div class="d-flex">
+                    <div class="d-flex flex-column w60 border-none" style="border-right: 1px solid #dee2e6 !important;">
+                      <div class="d-flex align-items-center border-none p-5" style="border-bottom: 1px solid #dee2e6 !important;">
+                        <h1 class="menu-title">Proyecto</h1>
+                      </div>
+                      <div class="d-flex align-items-center border-none p-5">
+                        <h1 class="menu-title">Ubicación</h1>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center border-none p-5" style="width: 200px !important;">
+                      <span class="info-title">Info@inmobiliariablu +916 742 7421</span>
+                    </div>
+                </div>
+            
+                <!-- Tercer hijo -->
+                <div class="d-flex">
+                  <div class="d-flex flex-column w60 border-none" style="border-right: 1px solid #dee2e6 !important;">
+                    <div class="d-flex align-items-center border-none p-5" style="border-bottom: 1px solid #dee2e6 !important;">
+                      <h1 class="menu-title">Recorrido 360</h1>
+                    </div>
+                    <div class="d-flex align-items-center border-none p-5">
+                      <h1 class="menu-title">Planos</h1>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-center border-none p-5" style="width: 200px !important;">
+                    <span class="info-title">Villareal 385 - 395, San Isidro</span>
+                  </div>
+                </div>
+            
+                <!-- Cuarto hijo -->
+                <div class="d-flex">
+                    <div class="d-flex flex-column w60 border-none" style="border-right: 1px solid #dee2e6 !important;">
+                      <div class="d-flex align-items-center border-none p-5" style="border-bottom: 1px solid #dee2e6 !important;">
+                        <h1 class="menu-title">Aliados</h1>
+                      </div>
+                      <div class="d-flex align-items-center border-none p-5">
+                        <h1 class="menu-title">Contacto</h1>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center border-none p-5" style="width: 200px !important;">
+                      <ul class="list-inline d-flex border-none gap-3">
+                        <li><span class="info-title">Instagram</span></li>
+                        <li><span class="info-title">Facebook</span></li>
+                        <li><span class="info-title">Linkedin</span></li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
         </div>
     </div>
     <main style="background-color: #000;height: 100vh;">
         <div class="px-5 py-5 h-100">
             <div class="d-flex justify-content-between">
-                <h1 class="text-white">Soul</h1>
-                <div class="btn-menu-container d-flex align-items-center justify-content-center" >
+                <img src="assets/images/logo-w.webp" alt="" style="width: 150px;">
+                <div class="btn-menu-container">
                     <div class="btn-menu" onclick="animateBars()">
-                        <span class="icon-bar-1 mt-0"></span>
-                        <span class="icon-bar-2"></span>
-                        <span class="icon-bar-3"></span>
+                        <div class="line line-1"></div>
+                        <div class="line line-2"></div>
+                        <div class="line line-3"></div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/app.js"></script>
 </body>
