@@ -5,15 +5,14 @@ body {
 }
 
 .navbar-menu {
-    width: 100%;
     height: 0;
-    background-color: #fdf6ed;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    flex: 1;
     position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
+    top: 0%;
+    bottom: auto;
+    left: 0%;
+    right: 0%;
+    overflow: hidden;
 }
 
 .btn-menu {
@@ -45,29 +44,3 @@ body {
     align-items: center;
 }
 
-/* Menú animado */
-.navbar-menu.show {
-    height: 100vh;
-    transition: height 0.8s ease;
-}
-
-.w60{
-    width: 60%;
-}   
-
-.d-flex > .d-flex {
-    flex-grow: 1; /* Cada hijo ocupa el mismo alto */
-    border: 1px solid #dee2e6; /* Borde similar a table-bordered */
-}
-
-.d-flex > .d-flex:not(:last-child) {
-    border-bottom: 0; /* Evitar bordes dobles entre filas */
-}
-
-.d-flex > .d-flex:last-child {
-    border-bottom: 1px solid #dee2e6; /* Agregar borde inferior al último hijo */
-}
-
-.border-none{
-    border: none !important
-}
