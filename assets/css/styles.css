@@ -104,8 +104,26 @@ body {
     z-index: 1; /* Asegura que el texto esté encima del círculo */
 }
 
-tbody, td, tfoot, th, thead, tr{
-    border-color: #000 !important;
+
+.border-table-right {
+    position: relative;
+    overflow: hidden;
 }
-
-
+  
+.border-table-right::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: var(--border-width, 0%);
+    height: 1px;
+    background-color: #000; /* Color del borde animado */
+    transform-origin: left; /* El borde crece desde la izquierda */
+    transition: none; /* Animación controlada por GSAP */
+    opacity: 0; /* Por defecto oculto */
+}
+  
+.border-table-right.is-visible::after {
+    opacity: 1; /* Visible solo durante la animación */
+}
+  

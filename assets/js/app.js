@@ -1,33 +1,58 @@
 const menuTl = gsap.timeline({ paused: true, reversed: true });
+const tableBordersRight = document.querySelectorAll(".border-table-right");
 
+// Línea de tiempo para el menú
 menuTl.to(".navbar-menu", {
-  height: "100svh", // Cambia la altura al 100% de su contenedor
+  height: "100svh", // Abre el menú
   duration: 0.8,
-})
+  ease: "power2.inOut",
+}).add(() => {
+  // Reiniciar bordes antes de animar al abrir el menú
+  tableBordersRight.forEach((cell) => {
+    cell.classList.add("is-visible"); // Asegurarse de que los bordes sean visibles
+    gsap.set(cell, { "--border-width": "0%" }); // Reinicia a estado inicial
+    gsap.to(cell, {
+      duration: 0.5,
+      "--border-width": "100%", // Expandir los bordes
+      ease: "power2.inOut",
+    });
+  });
+}, "-=0.4"); // Empieza antes de que termine la apertura del menú
 
+// Alternar el estado del menú
 let isMenuOpen = false;
 function animateBars() {
-    const tl = gsap.timeline({ defaults: { duration: 0.3, ease: "power2.inOut" } });
+  const tl = gsap.timeline({ defaults: { duration: 0.3, ease: "power2.inOut" } });
 
-    if (!isMenuOpen) {
-        // Animar a X
-        tl.to(".line-1", { y: 10, rotate: 45 }) // Línea superior baja y rota
-          .to(".line-2", { opacity: 0 }, "<") // Línea del medio desaparece
-          .to(".line-3", { y: -15.5, rotate: -45 }, "<"); // Línea inferior sube y rota
-    } else {
-        // Restaurar a menú
-        tl.to(".line-1", { y: 0, rotate: 0 }) // Línea superior regresa
-          .to(".line-2", { opacity: 1 }, "<") // Línea del medio reaparece
-          .to(".line-3", { y: 0, rotate: 0 }, "<"); // Línea inferior regresa
-    }
+  if (!isMenuOpen) {
+    // Animar a X
+    tl.to(".line-1", { y: 10, rotate: 45 }) // Línea superior baja y rota
+      .to(".line-2", { opacity: 0 }, "<") // Línea del medio desaparece
+      .to(".line-3", { y: -15.5, rotate: -45 }, "<"); // Línea inferior sube y rota
+  } else {
+    // Restaurar a menú
+    tl.to(".line-1", { y: 0, rotate: 0 }) // Línea superior regresa
+      .to(".line-2", { opacity: 1 }, "<") // Línea del medio reaparece
+      .to(".line-3", { y: 0, rotate: 0 }, "<"); // Línea inferior regresa
+  }
 
-    isMenuOpen = !isMenuOpen; // Alterna el estado
+  isMenuOpen = !isMenuOpen; // Alterna el estado
 
-    if (menuTl.reversed()) {
-        menuTl.play();
-    } else {
-        menuTl.reverse();
-    }
+  if (menuTl.reversed()) {
+    menuTl.play(); // Abre el menú y anima bordes
+  } else {
+    menuTl.reverse(); // Cierra el menú y retrae los bordes
+    tableBordersRight.forEach((cell) => {
+      gsap.to(cell, {
+        duration: 0.5,
+        "--border-width": "0%", // Contraer los bordes
+        ease: "power2.inOut",
+        onComplete: () => {
+          cell.classList.remove("is-visible"); // Ocultar los bordes después de contraerlos
+        },
+      });
+    });
+  }
 }
 
 const viewportHeight = window.innerHeight;
