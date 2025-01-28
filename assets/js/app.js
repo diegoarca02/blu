@@ -3,7 +3,7 @@ const menuTl = gsap.timeline({ paused: true, reversed: true });
 menuTl.to(".navbar-menu", {
   height: "100svh", // Cambia la altura al 100% de su contenedor
   duration: 0.8,
-});
+})
 
 let isMenuOpen = false;
 function animateBars() {
