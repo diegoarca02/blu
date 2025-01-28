@@ -111,3 +111,24 @@ button.addEventListener('mouseleave', (e) => {
   });
 });
 
+
+
+function animateTableBorders() {
+  // Seleccionamos todas las celdas con la clase de borde animado
+  const cells = document.querySelectorAll('.animated-border');
+
+  // Usamos GSAP para animarlas
+  gsap.from(cells, {
+      duration: 1,
+      borderWidth: 0,
+      opacity: 0,
+      stagger: 0.2,
+      ease: "power2.out",
+      onStart: function () {
+          console.log('Animación de bordes iniciada');
+      }
+  });
+}
+
+// Ejecutar la animación cuando se abra el menú
+document.querySelector('.btn-menu').addEventListener('click', animateTableBorders);
