@@ -94,7 +94,7 @@
         </tr>
       </table>
     </div>
-    <main id="first-section" style="background-image: url(assets/images/main.webp);height: 100vh;">
+    <main class="section" id="first-section" style="background-image: url(assets/images/main.webp);height: 100vh;">
         <div class="px-5 py-5 h-100">
             <div class="d-flex justify-content-between">
               <img src="assets/images/logo-b.webp" alt="" style="height: 50px;">
@@ -108,8 +108,9 @@
             </div>
         </div>
     </main>
-    <section id="second-section" style="background-image: url(assets/images/fondo2.webp);height: 100vh;">
-      <div class="h-100" style="background-color: #00000070;">
+    <section class="section" id="second-section" style="height: 100vh;">
+      <div class="bg" style="background-image: url(assets/images/fondo2.webp);"></div>
+      <div class="h-100 w-100" style="background-color: #00000070;">
         <table class="w-100 mb-0 full-height h-100">
           <tr>
             <td class="p-5">
@@ -196,6 +197,20 @@
       </div>
    
     </section>
+    <main class="section" id="first-section" style="background-image: url(assets/images/main.webp);height: 100vh;">
+      <div class="px-5 py-5 h-100">
+          <div class="d-flex justify-content-between">
+            <img src="assets/images/logo-b.webp" alt="" style="height: 50px;">
+              <div class="btn-menu-container">
+                  <div class="btn-menu" onclick="animateBars()">
+                      <div class="line line-1"></div>
+                      <div class="line line-2"></div>
+                      <div class="line line-3"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </main>
 
     <div class="d-flex align-items-center position-fixed social-container">
       <a href="" class="btn btn-dark btn-circle-hover">
