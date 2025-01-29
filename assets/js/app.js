@@ -1,83 +1,60 @@
 const menuTl = gsap.timeline({ paused: true, reversed: true });
-const tableBordersRight = document.querySelectorAll(".border-table-right");
-const tableBordersLeft = document.querySelectorAll(".border-table-left"); // Selecciona los bordes izquierdos
+const tableBordersRight = document.querySelectorAll(".border-table-right .border");
 
-// Línea de tiempo para el menú
+const bgColor = "#CC0000";
+const easing = Power0.easeNone;
+
+// 🔹 Animación del borde derecho (se ejecuta solo una vez)
+var tl = new TimelineMax({ paused: true });
+
+tl.fromTo(tableBordersRight, 1, 
+  {
+    width: 0, 
+    background: bgColor,
+    immediateRender: false,
+    autoRound: false,
+    ease: easing
+  }, 
+  {
+    width: "100%", 
+    background: bgColor
+  }
+);
+
+// 🔹 Línea de tiempo para abrir el menú
 menuTl.to(".navbar-menu", {
-  height: "100svh", // Abre el menú
+  height: "100svh",
   duration: 0.8,
   ease: "power2.inOut",
-}).add(() => {
-  // Animar bordes derechos al abrir el menú con easing "expo.out"
-  tableBordersRight.forEach((cell) => {
-    cell.classList.add("is-visible"); // Asegurarse de que los bordes sean visibles
-    gsap.set(cell, { "--border-width": "0%" }); // Reinicia a estado inicial
-    gsap.to(cell, {
-      duration: 0.7, // Un poco más largo para que se note el efecto
-      "--border-width": "100%", // Expandir los bordes derechos
-      ease: "expo.out", // Comienza lento y luego acelera
-    });
-  });
+});
 
-  // Animar bordes izquierdos al abrir el menú con easing "expo.out"
-  tableBordersLeft.forEach((cell) => {
-    cell.classList.add("is-visible"); // Asegurarse de que los bordes sean visibles
-    gsap.set(cell, { "--border-width": "0%" }); // Reinicia a estado inicial
-    gsap.to(cell, {
-      duration: 0.7, // Un poco más largo para que se note el efecto
-      "--border-width": "100%", // Expandir los bordes izquierdos desde la derecha
-      ease: "expo.out", // Comienza lento y luego acelera
-    });
-  });
-}, "-=0.4"); // Empieza antes de que termine la apertura del menú
+// 🔹 Ejecutar la animación del borde cuando el menú termine de abrirse
+menuTl.eventCallback("onComplete", () => {
+  if (!tl.isActive() && !tl.progress()) { // Asegurar que solo se ejecute una vez
+    tl.play();
+  }
+});
 
-// Alternar el estado del menú
 let isMenuOpen = false;
 function animateBars() {
   const tl = gsap.timeline({ defaults: { duration: 0.3, ease: "power2.inOut" } });
 
   if (!isMenuOpen) {
-    // Animar a X
-    tl.to(".line-1", { y: 10, rotate: 45 }) // Línea superior baja y rota
-      .to(".line-2", { opacity: 0 }, "<") // Línea del medio desaparece
-      .to(".line-3", { y: -15.5, rotate: -45 }, "<"); // Línea inferior sube y rota
+    tl.to(".line-1", { y: 10, rotate: 45 })
+      .to(".line-2", { opacity: 0 }, "<")
+      .to(".line-3", { y: -15.5, rotate: -45 }, "<");
   } else {
-    // Restaurar a menú
-    tl.to(".line-1", { y: 0, rotate: 0 }) // Línea superior regresa
-      .to(".line-2", { opacity: 1 }, "<") // Línea del medio reaparece
-      .to(".line-3", { y: 0, rotate: 0 }, "<"); // Línea inferior regresa
+    tl.to(".line-1", { y: 0, rotate: 0 })
+      .to(".line-2", { opacity: 1 }, "<")
+      .to(".line-3", { y: 0, rotate: 0 }, "<");
   }
 
-  isMenuOpen = !isMenuOpen; // Alterna el estado
+  isMenuOpen = !isMenuOpen;
 
   if (menuTl.reversed()) {
-    menuTl.play(); // Abre el menú y anima bordes
+    menuTl.play(); // Abre el menú
   } else {
-    menuTl.reverse(); // Cierra el menú y retrae los bordes
-
-    // Contraer los bordes derechos con easing "expo.out"
-    tableBordersRight.forEach((cell) => {
-      gsap.to(cell, {
-        duration: 0.4,
-        "--border-width": "0%", // Contraer los bordes derechos
-        ease: "expo.out", // Comienza lento y luego acelera
-        onComplete: () => {
-          cell.classList.remove("is-visible"); // Ocultar los bordes después de contraerlos
-        },
-      });
-    });
-
-    // Contraer los bordes izquierdos con easing "expo.out"
-    tableBordersLeft.forEach((cell) => {
-      gsap.to(cell, {
-        duration: 0.4,
-        "--border-width": "0%", // Contraer los bordes izquierdos
-        ease: "expo.out", // Comienza lento y luego acelera
-        onComplete: () => {
-          cell.classList.remove("is-visible"); // Ocultar los bordes después de contraerlos
-        },
-      });
-    });
+    menuTl.reverse(); // Cierra el menú
   }
 }
 
@@ -161,6 +138,5 @@ button.addEventListener('mouseleave', (e) => {
     },
   });
 });
-
 
 

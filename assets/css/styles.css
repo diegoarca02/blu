@@ -104,48 +104,18 @@ body {
     z-index: 1; /* Asegura que el texto esté encima del círculo */
 }
 
-/* 🔹 Borde derecho */
-.border-table-right, .border-table-left {
+/* 🔹 Borde derecho e izquierdo (ya los tienes definidos) */
+.border-table-right,
+.border-table-left,
+.border-table-vertical {
     position: relative;
-    overflow: hidden;
-}
-  
-.border-table-right::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: var(--border-width, 0%);
-    height: 2px;
-    background: #000;
-    transform-origin: left;
-    transition: none;
-    opacity: 0;
-}
-  
-.border-table-right.is-visible::after {
-    opacity: 1;
 }
 
-/* 🔹 Borde izquierdo */
- {
-    position: relative;
-    overflow: hidden;
-}
-  
-.border-table-left::before {
-    content: '';
+/* 🔹 Borde derecho */
+.border-table-right .border{
     position: absolute;
-    bottom: 0;
-    right: 0;
-    width: var(--border-width, 0%);
-    height: 2px;
-    background: #000;
-    transform-origin: right;
-    opacity: 0;
-    transition: none;
-}
-  
-.border-table-left.is-visible::before {
-    opacity: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
 }
