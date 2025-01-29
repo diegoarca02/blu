@@ -111,7 +111,8 @@ body {
 /* 🔹 Borde derecho e izquierdo (ya los tienes definidos) */
 .border-table-right,
 .border-table-left,
-.border-table-vertical {
+.border-table-vertical,
+{
     position: relative;
 }
 
@@ -229,3 +230,5 @@ body {
 .section{
     position: relative;
 }
+
+

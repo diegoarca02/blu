@@ -4,6 +4,8 @@ const tableBordersLeft = document.querySelectorAll(".border-table-left .border")
 const tableBordersTop = document.querySelectorAll(".border-table-left .border-vertical");
 const tableBordersBottom = document.querySelectorAll(".border-table-right .border-vertical");
 
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
 const bgColor = "#dee2e6";
 const easing = Power0.easeNone;
 
@@ -68,6 +70,7 @@ function resetBorderTopAnimation() {
       }
   );
 }
+
 function resetBorderBottomAnimation() {
   tlBottom = new TimelineMax({ paused: true });
 
@@ -261,6 +264,8 @@ gsap.utils.toArray("section").forEach((section, i) => {
     });
   }
 });
+
+
 
 // Inicializar la animación del borde al cargar la página
 resetBorderRightAnimation();
