@@ -216,7 +216,7 @@ button.addEventListener('mouseleave', (e) => {
 // Selecciona todas las barras de progreso
 const progressBars = document.querySelectorAll('.progress-bar');
 
-  progressBars.forEach(bar => {
+progressBars.forEach(bar => {
     const progress = bar.getAttribute('data-progress');
     
     gsap.to(bar, {
@@ -224,7 +224,8 @@ const progressBars = document.querySelectorAll('.progress-bar');
       duration: 1,
       ease: 'power2.out'
     });
-  });
+});
+
 
 // Inicializar la animación del borde al cargar la página
 resetBorderRightAnimation();
