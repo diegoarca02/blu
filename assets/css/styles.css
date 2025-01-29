@@ -7,6 +7,10 @@
     font-family: "PPMori";
 }
 
+.p-7{
+    padding: 7rem ;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -143,4 +147,69 @@ body {
     width: 2px; /* Ancho del borde */
     height: 0;  /* Inicia invisible */
     background-color: #CC0000;
+}
+
+.title{
+    font-family: "PPMori";
+    font-size: 4rem;
+}
+
+#table-cicle td.first-column {
+    white-space: nowrap; /* Evita que el contenido haga saltos de línea */
+    width: 1%; /* Reduce el ancho al mínimo necesario */
+}
+
+/* 🔹 Estilo general de la tabla */
+#table-cicle {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+  /* 🔹 Estilo para las celdas */
+#table-cicle td {
+    border: 1px solid #ccc; /* Bordes blancos */
+    padding: 8px; /* Espaciado dentro de las celdas */
+}
+  
+  /* 🔹 Eliminar bordes izquierdo, superior e inferior del primer td de cada fila */
+ #table-cicle td.first-column {
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    white-space: nowrap; /* Asegura que el texto no salte de línea */
+}
+  
+  /* 🔹 Centrar el contenido de la segunda columna */
+#table-cicle tr td:nth-child(2) {
+    text-align: center;
+}
+  
+  /* 🔹 Estilo del texto dentro de la tabla */
+#table-cicle h3 {
+    margin: 0;
+    margin-right: 2rem;
+}
+  
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 50px; /* Ajusta la altura según necesites */
+    background: transparent;
+    overflow: hidden;
+}
+  
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: white; /* Color de la barra */
+    transition: width 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
 }
