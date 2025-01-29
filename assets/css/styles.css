@@ -104,8 +104,8 @@ body {
     z-index: 1; /* Asegura que el texto esté encima del círculo */
 }
 
-
-.border-table-right {
+/* 🔹 Borde derecho */
+.border-table-right, .border-table-left {
     position: relative;
     overflow: hidden;
 }
@@ -116,14 +116,36 @@ body {
     bottom: 0;
     left: 0;
     width: var(--border-width, 0%);
-    height: 1px;
-    background-color: #000; /* Color del borde animado */
-    transform-origin: left; /* El borde crece desde la izquierda */
-    transition: none; /* Animación controlada por GSAP */
-    opacity: 0; /* Por defecto oculto */
+    height: 2px;
+    background: #000;
+    transform-origin: left;
+    transition: none;
+    opacity: 0;
 }
   
 .border-table-right.is-visible::after {
-    opacity: 1; /* Visible solo durante la animación */
+    opacity: 1;
+}
+
+/* 🔹 Borde izquierdo */
+ {
+    position: relative;
+    overflow: hidden;
 }
   
+.border-table-left::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: var(--border-width, 0%);
+    height: 2px;
+    background: #000;
+    transform-origin: right;
+    opacity: 0;
+    transition: none;
+}
+  
+.border-table-left.is-visible::before {
+    opacity: 1;
+}

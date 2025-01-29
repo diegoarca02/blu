@@ -1,5 +1,6 @@
 const menuTl = gsap.timeline({ paused: true, reversed: true });
 const tableBordersRight = document.querySelectorAll(".border-table-right");
+const tableBordersLeft = document.querySelectorAll(".border-table-left"); // Selecciona los bordes izquierdos
 
 // Línea de tiempo para el menú
 menuTl.to(".navbar-menu", {
@@ -7,14 +8,25 @@ menuTl.to(".navbar-menu", {
   duration: 0.8,
   ease: "power2.inOut",
 }).add(() => {
-  // Reiniciar bordes antes de animar al abrir el menú
+  // Animar bordes derechos al abrir el menú con easing "expo.out"
   tableBordersRight.forEach((cell) => {
     cell.classList.add("is-visible"); // Asegurarse de que los bordes sean visibles
     gsap.set(cell, { "--border-width": "0%" }); // Reinicia a estado inicial
     gsap.to(cell, {
-      duration: 0.5,
-      "--border-width": "100%", // Expandir los bordes
-      ease: "power2.inOut",
+      duration: 0.7, // Un poco más largo para que se note el efecto
+      "--border-width": "100%", // Expandir los bordes derechos
+      ease: "expo.out", // Comienza lento y luego acelera
+    });
+  });
+
+  // Animar bordes izquierdos al abrir el menú con easing "expo.out"
+  tableBordersLeft.forEach((cell) => {
+    cell.classList.add("is-visible"); // Asegurarse de que los bordes sean visibles
+    gsap.set(cell, { "--border-width": "0%" }); // Reinicia a estado inicial
+    gsap.to(cell, {
+      duration: 0.7, // Un poco más largo para que se note el efecto
+      "--border-width": "100%", // Expandir los bordes izquierdos desde la derecha
+      ease: "expo.out", // Comienza lento y luego acelera
     });
   });
 }, "-=0.4"); // Empieza antes de que termine la apertura del menú
@@ -42,11 +54,25 @@ function animateBars() {
     menuTl.play(); // Abre el menú y anima bordes
   } else {
     menuTl.reverse(); // Cierra el menú y retrae los bordes
+
+    // Contraer los bordes derechos con easing "expo.out"
     tableBordersRight.forEach((cell) => {
       gsap.to(cell, {
-        duration: 0.5,
-        "--border-width": "0%", // Contraer los bordes
-        ease: "power2.inOut",
+        duration: 0.4,
+        "--border-width": "0%", // Contraer los bordes derechos
+        ease: "expo.out", // Comienza lento y luego acelera
+        onComplete: () => {
+          cell.classList.remove("is-visible"); // Ocultar los bordes después de contraerlos
+        },
+      });
+    });
+
+    // Contraer los bordes izquierdos con easing "expo.out"
+    tableBordersLeft.forEach((cell) => {
+      gsap.to(cell, {
+        duration: 0.4,
+        "--border-width": "0%", // Contraer los bordes izquierdos
+        ease: "expo.out", // Comienza lento y luego acelera
         onComplete: () => {
           cell.classList.remove("is-visible"); // Ocultar los bordes después de contraerlos
         },
