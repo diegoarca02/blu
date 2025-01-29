@@ -119,3 +119,28 @@ body {
     width: 100%;
     height: 1px;
 }
+
+.border-table-left .border {
+    position: absolute;
+    top: 0;
+    right: 0; /* Comienza desde la derecha */
+    width: 0;
+    height: 1px;
+}
+
+.border-table-left .border-vertical {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2px; /* Ancho del borde */
+    height: 0;  /* Inicia invisible */
+}
+
+.border-table-right .border-vertical {
+    position: absolute;
+    bottom: 0;  /* Inicia desde la parte inferior */
+    right: 0;
+    width: 2px; /* Ancho del borde */
+    height: 0;  /* Inicia invisible */
+    background-color: #CC0000;
+}
