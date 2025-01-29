@@ -267,8 +267,10 @@ gsap.utils.toArray("section").forEach((section, i) => {
 
 
 
+
 // Inicializar la animación del borde al cargar la página
 resetBorderRightAnimation();
 resetBorderLeftAnimation();
 resetBorderTopAnimation();
 resetBorderBottomAnimation();
+
