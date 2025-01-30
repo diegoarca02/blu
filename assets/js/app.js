@@ -133,7 +133,6 @@ button.addEventListener('mouseleave', (e) => {
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Seleccionamos todas las barras de progreso
 const progressBars = document.querySelectorAll('.progress-bar');
 
 progressBars.forEach(bar => {
@@ -141,16 +140,17 @@ progressBars.forEach(bar => {
 
   gsap.to(bar, {
     width: `${progress}%`,
-    duration: 2, // 🔹 Hace que la animación sea más fluida
-    ease: "power3.out", // 🔹 Mejora la suavidad de la animación
+    duration: 1.5,
+    ease: "power2.out",
     scrollTrigger: {
       trigger: "#second-section", // Se activará cuando esta sección entre en pantalla
-      start: "top 60%", // 🔹 Inicia la animación cuando la sección está en el 60% de la pantalla
-      toggleActions: "play none none none", // 🔹 Solo se ejecuta una vez sin revertirse
-      once: true // 🔹 Se ejecuta solo una vez
+      start: "top 50%", // Inicia la animación cuando la sección está en el 50% de la pantalla
+      toggleActions: "play none none reverse", // Reproduce cuando entra, revierte si sube
+     
     }
   });
 });
+
 
 gsap.utils.toArray("section").forEach((section, i) => {
   section.bg = section.querySelector(".bg"); 
