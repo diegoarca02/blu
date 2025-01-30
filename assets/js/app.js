@@ -151,35 +151,9 @@ progressBars.forEach(bar => {
   });
 });
 
-
-gsap.utils.toArray(".section").forEach((section, i) => {
-  section.bg = section.querySelector(".bg"); 
-  if (i) {
-    section.bg.style.backgroundPosition = `50% ${-innerHeight / 2}px`;
-
-    gsap.to(section.bg, {
-      backgroundPosition: `50% ${innerHeight / 2}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        scrub: true
-      }
-    });
-  } 
-  
-  // the first image should be positioned against the top. Use px on the animating part to work with GSAP. 
-  else {
-    section.bg.style.backgroundPosition = "50% 0px"; 
-
-    gsap.to(section.bg, {
-      backgroundPosition: `50% ${innerHeight / 2}px`,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        start: "top top", 
-        end: "bottom top",
-        scrub: true
-      }
-    });
-  }
+ScrollSmoother.create({
+  wrapper: "#smooth-wrapper",
+  content: "#smooth-content",
+  smooth: 2,
+  effects: true
 });

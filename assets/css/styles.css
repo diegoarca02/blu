@@ -232,3 +232,12 @@ body {
 .section{
     position: relative;
 }
+
+html, body {
+    overflow-x: hidden !important;
+    min-height: 100% !important;
+}
+
+#smooth-content {
+    min-height: 100vh !important;
+}
