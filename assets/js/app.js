@@ -152,7 +152,7 @@ progressBars.forEach(bar => {
 });
 
 
-gsap.utils.toArray("section").forEach((section, i) => {
+gsap.utils.toArray(".section").forEach((section, i) => {
   section.bg = section.querySelector(".bg"); 
   if (i) {
     section.bg.style.backgroundPosition = `50% ${-innerHeight / 2}px`;
@@ -183,11 +183,3 @@ gsap.utils.toArray("section").forEach((section, i) => {
     });
   }
 });
-
-
-
-// Inicializar la animación del borde al cargar la página
-resetBorderRightAnimation();
-resetBorderLeftAnimation();
-resetBorderTopAnimation();
-resetBorderBottomAnimation();
