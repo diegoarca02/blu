@@ -158,20 +158,23 @@ ScrollSmoother.create({
   effects: true
 });
 
- gsap.registerPlugin(ScrollTrigger);
 
-    // Seleccionamos las imágenes de fondo de #second-section y #third-section
-    const sections = document.querySelectorAll("#second-section .bg, #third-section .bg");
+const sections = document.querySelectorAll(".bg");
 
     sections.forEach((bg) => {
-        gsap.to(bg, {
-            yPercent: -30, // Mueve la imagen hacia arriba mientras el usuario baja
-            ease: "none",
-            scrollTrigger: {
-                trigger: bg,
-                start: "top bottom",  // Empieza cuando la sección entra en la vista
-                end: "bottom top",    // Termina cuando sale de la vista
-                scrub: 1,             // Suaviza el desplazamiento
+        // Animación de parallax para cada imagen de fondo
+        gsap.fromTo(
+            bg,
+            { yPercent: -15 }, // Ajuste inicial para evitar márgenes visibles
+            {
+                yPercent: -30, // Movimiento suave hacia arriba
+                ease: "none", // Movimiento constante
+                scrollTrigger: {
+                    trigger: bg.parentNode, // Activa el trigger en la sección padre
+                    start: "top bottom", // Comienza cuando la sección entra en la pantalla
+                    end: "bottom top", // Termina cuando la sección sale de la pantalla
+                    scrub: 1, // Sincroniza el movimiento con el scroll
+                },
             }
-        });
+        );
     });
