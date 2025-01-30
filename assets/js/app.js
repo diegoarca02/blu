@@ -1,140 +1,55 @@
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
 const menuTl = gsap.timeline({ paused: true, reversed: true });
 const tableBordersRight = document.querySelectorAll(".border-table-right .border");
 const tableBordersLeft = document.querySelectorAll(".border-table-left .border");
 const tableBordersTop = document.querySelectorAll(".border-table-left .border-vertical");
 const tableBordersBottom = document.querySelectorAll(".border-table-right .border-vertical");
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
+const bgColor = "#000";
+const easing = "power2.inOut";
 
-const bgColor = "#dee2e6";
-const easing = Power0.easeNone;
+// 🔹 Animación de los bordes al **abrir** el menú (inmediatamente)
+const borderTl = gsap.timeline({ paused: true });
 
-// 🔹 Animación del borde derecho (se ejecuta cada vez que se abre el menú)
-var tlRight = new TimelineMax({ paused: true });
-var tlLeft = new TimelineMax({ paused: true });
-var tlTop = new TimelineMax({ paused: true });
-var tlBottom = new TimelineMax({ paused: true });
+borderTl.fromTo(tableBordersRight, { width: 0, background: bgColor }, { width: "100%", duration: 1, ease: easing }, 0)
+        .fromTo(tableBordersLeft, { width: 0, background: bgColor }, { width: "100%", duration: 1, ease: easing }, 0)
+        .fromTo(tableBordersTop, { height: 0, background: bgColor }, { height: "100%", duration: 1, ease: easing }, 0)
+        .fromTo(tableBordersBottom, { height: 0, background: bgColor }, { height: "100%", duration: 1, ease: easing }, 0);
 
-function resetBorderRightAnimation() {
-  tlRight = new TimelineMax({ paused: true });
+// 🔹 Animación para cerrar los bordes
+const borderCloseTl = gsap.timeline({ paused: true });
 
-  tlRight.fromTo(tableBordersRight, 1, 
-    {
-      width: 0, 
-      background: bgColor,
-      immediateRender: false,
-      autoRound: false,
-      ease: easing
-    }, 
-    {
-      width: "100%", 
-      background: bgColor
-    }
-  );
-}
+borderCloseTl.to(tableBordersRight, { width: 0, duration: 0.8, ease: easing }, 0)
+             .to(tableBordersLeft, { width: 0, duration: 0.8, ease: easing }, 0)
+             .to(tableBordersTop, { height: 0, duration: 0.8, ease: easing }, 0)
+             .to(tableBordersBottom, { height: 0, duration: 0.8, ease: easing }, 0);
 
-function resetBorderLeftAnimation() {
-  tlLeft = new TimelineMax({ paused: true });
-
-  tlLeft.fromTo(tableBordersLeft, 1, 
-      {
-          width: 0,
-          background: bgColor,
-          immediateRender: false,
-          autoRound: false,
-          ease: easing
-      },
-      {
-          width: "100%",
-          background: bgColor,
-          right: "0"
-      }
-  );
-}
-
-function resetBorderTopAnimation() {
-  tlTop = new TimelineMax({ paused: true });
-
-  tlTop.fromTo(tableBordersTop, 1, 
-      {
-          height: 0,
-          background: bgColor,
-          immediateRender: false,
-          autoRound: false,
-          ease: easing
-      },
-      {
-          height: "100%",
-          background: bgColor,
-          top: "0"
-      }
-  );
-}
-
-function resetBorderBottomAnimation() {
-  tlBottom = new TimelineMax({ paused: true });
-
-  tlBottom.fromTo(tableBordersBottom, 1, 
-      {
-          height: 0,
-          background: bgColor,
-          immediateRender: false,
-          autoRound: false,
-          ease: easing
-      },
-      {
-          height: "100%",
-          background: bgColor,
-          bottom: "0"
-      }
-  );
-}
-
-// 🔹 Línea de tiempo para abrir el menú
+// 🔹 Animación para abrir el menú
 menuTl.to(".navbar-menu", {
   height: "100svh",
   duration: 0.8,
-  ease: "power2.inOut",
-});
-
-// 🔹 Ejecutar la animación del borde cuando el menú termine de abrirse
-menuTl.eventCallback("onComplete", () => {
-  if (!tlRight.isActive()) {
-    tlRight.play(0);
-  }
-  if (!tlLeft.isActive()) {
-    tlLeft.play(0);
-  }
-  if (!tlTop.isActive()) {
-    tlTop.play(0);
-  }
-  if (!tlBottom.isActive()) {
-    tlBottom.play(0);
-  }
+  ease: easing,
 });
 
 let isMenuOpen = false;
 function animateBars() {
-  const tlBars = gsap.timeline({ defaults: { duration: 0.3, ease: "power2.inOut" } });
+  const tlBars = gsap.timeline({ defaults: { duration: 0.3, ease: easing } });
 
   if (!isMenuOpen) {
     tlBars.to(".line-1", { y: 10, rotate: 45 })
-      .to(".line-2", { opacity: 0 }, "<")
-      .to(".line-3", { y: -15.5, rotate: -45 }, "<");
+          .to(".line-2", { opacity: 0 }, "<")
+          .to(".line-3", { y: -15.5, rotate: -45 }, "<");
 
-    menuTl.play(); // Abrir menú
+    menuTl.play();      // 🔹 Abre el menú
+    borderTl.play(0);   // 🔹 Inicia la animación de bordes INMEDIATAMENTE
   } else {
     tlBars.to(".line-1", { y: 0, rotate: 0 })
-      .to(".line-2", { opacity: 1 }, "<")
-      .to(".line-3", { y: 0, rotate: 0 }, "<");
+          .to(".line-2", { opacity: 1 }, "<")
+          .to(".line-3", { y: 0, rotate: 0 }, "<");
 
-    menuTl.reverse(); // Cerrar menú
-
-    // Reiniciar la animación del borde
-    resetBorderRightAnimation();
-    resetBorderLeftAnimation();
-    resetBorderTopAnimation();
-    resetBorderBottomAnimation();
+    menuTl.reverse();   // 🔹 Cierra el menú
+    borderCloseTl.play(0); // 🔹 Cierra los bordes al mismo tiempo
   }
 
   isMenuOpen = !isMenuOpen;
@@ -231,10 +146,6 @@ progressBars.forEach(bar => {
 
 gsap.utils.toArray("section").forEach((section, i) => {
   section.bg = section.querySelector(".bg"); 
-
-  // Give the backgrounds some random images
-
-  // Do the parallax effect on each section
   if (i) {
     section.bg.style.backgroundPosition = `50% ${-innerHeight / 2}px`;
 
@@ -267,10 +178,8 @@ gsap.utils.toArray("section").forEach((section, i) => {
 
 
 
-
 // Inicializar la animación del borde al cargar la página
 resetBorderRightAnimation();
 resetBorderLeftAnimation();
 resetBorderTopAnimation();
 resetBorderBottomAnimation();
-
