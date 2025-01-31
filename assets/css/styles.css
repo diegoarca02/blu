@@ -220,7 +220,6 @@ body {
 .section {
     position: relative;
     width: 100%;
-    height: 100vh;
     overflow: hidden; /* Evita desbordamiento */
 }
 
@@ -229,12 +228,13 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 150% !important;
     object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
-    background-size: cover;
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
+   
 }
 
 html, body {
@@ -244,4 +244,29 @@ html, body {
 
 #smooth-content {
     min-height: 100vh !important;
+}
+
+
+.border-secondSection-right{
+    position: relative;
+}
+
+
+/* 🔹 Borde derecho */
+.border-secondSection-right .border {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0px; /* Cambiado a 0px */
+    border-top: 1px solid white !important; /* Usamos border en vez de background */
+}
+
+.border-secondSection-right .border-top {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    height: 100%; /* Cambiado a 100% */
+    border-right: 1px solid white !important; /* Usamos border */
 }
