@@ -109,52 +109,6 @@ body {
 }
 
 /* 🔹 Borde derecho e izquierdo (ya los tienes definidos) */
-.border-table-right,
-.border-table-left,
-.border-table-vertical {
-    position: relative;
-}
-
-/* 🔹 Borde derecho */
-.border-table-right .border{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: black !important;
-    transform: scaleY(0.75); 
-    border-color: black !important;
-}
-
-.border-table-left .border {
-    position: absolute;
-    top: 0;
-    right: 0; /* Comienza desde la derecha */
-    width: 0;
-    height: 1px;
-    background-color: black !important;
-    transform: scaleY(0.75); 
-    border-color: black !important;
-}
-
-.border-table-left .border-vertical {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 1px; /* Ancho del borde */
-    height: 0;  /* Inicia invisible */
-    background-color: black !important;
-}
-
-.border-table-right .border-vertical {
-    position: absolute;
-    bottom: 0;  /* Inicia desde la parte inferior */
-    right: 0;
-    width: 1px; /* Ancho del borde */
-    height: 0;  /* Inicia invisible */
-    background-color: black !important;
-}
 
 .title{
     font-family: "PPMori";
@@ -266,8 +220,8 @@ html, body {
     top: 100%;
     left: 0;
     width: 0;  /* Inicialmente 0 para animación */
-    height: 1px;
-    background-color: white !important;
+    height: 2px;
+    background-color: #ffffff9c !important;
  /*    transform: scaleY(0.75);  */
 }
 
@@ -276,27 +230,26 @@ html, body {
     top: 100%;
     right: 0;  /* 🔹 Inicia desde la derecha */
     width: 0;  /* 🔹 Comienza sin ancho */
-    height: 1px;
-    background-color: white !important;
+    height: 2px;
+    background-color: #ffffff9c !important;
     /* transform: scaleY(0.75); */
 }
 .border-secondSection-right .border-top {
     position: absolute;
     top: 100%;  
     right: 0;
-  
-    width: 1px;
+    width: 2px;
     height: 0;  /* Inicialmente 0 para animación */
-    background-color: white !important;
+    background-color: #ffffff9c !important;
 }
 
 .border-secondSection-right .border-bottom {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 1px;
+    width: 2px;
     height: 0;
-    background-color: white !important;
+    background-color: #ffffff9c !important;
 }
 
 /*-----*/
@@ -306,8 +259,8 @@ html, body {
     top: 100%;
     left: 0;
     width: 0;  /* Inicialmente 0 para animación */
-    height: 1px;
-    background-color: white !important;
+    height: 2px;
+    background-color: #ffffff9c !important;
    /*  transform: scaleY(0.75);  */
 }
 
@@ -316,26 +269,37 @@ html, body {
     top: 100%;
     right: 0;  /* 🔹 Inicia desde la derecha */
     width: 0;  /* 🔹 Comienza sin ancho */
-    height: 1px;
-    background-color: white !important;
+    height: 2px;
+    background-color: #ffffff9c !important;
     /* transform: scaleY(0.75); */
 }
 .border-secondSection-left .border-top {
     position: absolute;
     top: 100%;  
     right: 100%;
-    width: 1px;
+    width: 2px;
     height: 0;  /* Inicialmente 0 para animación */
-    background-color: white !important;
+    background-color: #ffffff9c !important;
 }
 
 .border-secondSection-left .border-bottom {
     position: absolute;
     bottom: 0;
     right: 100%;
-    width: 1px;
+    width: 2px;
     height: 0;
-    background-color: white !important;
+    background-color: #ffffff9c !important;
+}
+
+.border-center {
+    position: absolute;
+    top: 100%;
+    left: 50%; 
+    width: 0; 
+    height: 2px;
+    background-color: #ffffff9c !important;
+    transform: translateX(-50%); 
+  
 }
 
 .table-menu {
@@ -348,23 +312,105 @@ html, body {
 }
 
 
-.table-menu > tbody > tr {
-    height: 25%; /* 🔹 Divide la tabla en 4 filas iguales */
-}
 
-.border-center {
-    position: absolute;
-    top: 100%;
-    left: 50%; 
-    width: 0; 
-    height: 1px;
-    background-color: white !important;
-    transform: translateX(-50%); 
-  
-}
+
 
 html, body {
     -webkit-font-smoothing: antialiased; /* Mejora el renderizado de texto y bordes */
     -webkit-backface-visibility: hidden; /* Elimina inconsistencias de renderizado */
     backface-visibility: hidden;
 }
+/***/
+
+.border-table-right,
+.border-table-left {
+    position: relative;
+}
+
+.border-table-right .border {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;  /* Inicialmente 0 para animación */
+    height: 2px;
+    background-color: #000 !important;
+ /*    transform: scaleY(0.75);  */
+}
+
+.border-table-right .border-left {
+    position: absolute;
+    top: 100%;
+    right: 0;  /* 🔹 Inicia desde la derecha */
+    width: 0;  /* 🔹 Comienza sin ancho */
+    height: 2px;
+    background-color: #000 !important;
+    /* transform: scaleY(0.75); */
+}
+.border-table-right .border-top {
+    position: absolute;
+    top: 100%;  
+    right: 0;
+    width: 2px;
+    height: 0;  /* Inicialmente 0 para animación */
+    background-color: #000 !important;
+}
+
+.border-table-right .border-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 0;
+    background-color: #000 !important;
+}
+
+/*-----*/
+
+.border-table-left .border-right {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;  /* Inicialmente 0 para animación */
+    height: 2px;
+    background-color: #000 !important;
+   /*  transform: scaleY(0.75);  */
+}
+
+.border-table-left .border-left {
+    position: absolute;
+    top: 100%;
+    right: 0;  /* 🔹 Inicia desde la derecha */
+    width: 0;  /* 🔹 Comienza sin ancho */
+    height: 2px;
+    background-color: #000 !important;
+    /* transform: scaleY(0.75); */
+}
+.border-table-left .border-top {
+    position: absolute;
+    top: 100%;  
+    right: 100%;
+    width: 2px;
+    height: 0;  /* Inicialmente 0 para animación */
+    background-color: #000 !important;
+}
+
+.border-table-left .border-bottom {
+    position: absolute;
+    bottom: 0;
+    right: 100%;
+    width: 2px;
+    height: 0;
+    background-color: #000 !important;
+}
+
+.border-center-black {
+    position: absolute;
+    top: 100%;
+    left: 50%; 
+    width: 0; 
+    height: 2px;
+    background-color: #000 !important;
+    transform: translateX(-50%); 
+  
+}
+

@@ -10,28 +10,31 @@ let isMenuOpen = false;
 // 📌 3. ANIMACIONES DEL MENÚ Y BORDES
 const menuTl = gsap.timeline({ paused: true, reversed: true });
 
-const tableBordersRight = document.querySelectorAll(".border-table-right .border");
-const tableBordersLeft = document.querySelectorAll(".border-table-left .border");
-const tableBordersTop = document.querySelectorAll(".border-table-left .border-vertical");
-const tableBordersBottom = document.querySelectorAll(".border-table-right .border-vertical");
+const tableBordersLeftBottom = document.querySelectorAll(".border-table-left .border-bottom");
+const tableBordersLeftTop = document.querySelectorAll(".border-table-left .border-top");
+const tableBordersLeftLeft = document.querySelectorAll(".border-table-left .border-left");
+const tableBordersLeftRight = document.querySelectorAll(".border-table-left .border-right");
+
+const tableBordersRightLeft = document.querySelectorAll(".border-table-right .border-left");
 
 const borderTl = gsap.timeline({ paused: true });
 borderTl
-  .fromTo(tableBordersRight, { width: 0, background: bgColor }, { width: "100%", duration: 1, ease: easing }, 0)
-  .fromTo(tableBordersLeft, { width: 0, background: bgColor }, { width: "100%", duration: 1, ease: easing }, 0)
-  .fromTo(tableBordersTop, { height: 0, background: bgColor }, { height: "100%", duration: 1, ease: easing }, 0)
-  .fromTo(tableBordersBottom, { height: 0, background: bgColor }, { height: "100%", duration: 1, ease: easing }, 0);
-
+  .fromTo(tableBordersLeftBottom, { height: 0, background: bgColor }, { height: "100%", duration: 1, ease: easing, delay: 0.5 }, 0)
+  .fromTo(tableBordersLeftTop, { height: 0, background: bgColor }, { height: "100vh", duration: 1, ease: easing, delay: 0.5 }, 0)
+  .fromTo(tableBordersLeftLeft, { width: 0, background: bgColor }, { width: "100%", duration: 1, ease: easing, delay: 0.5 }, 0)
+  .fromTo(tableBordersLeftRight, { width: 0, background: bgColor }, { width: "100%", duration: 1, ease: easing, delay: 0.5 }, 0)
+  .fromTo(tableBordersRightLeft, { width: 0, background: bgColor }, { width: "100%", duration: 1, ease: easing, delay: 0.5 }, 0);
 const borderCloseTl = gsap.timeline({ paused: true });
 borderCloseTl
-  .to(tableBordersRight, { width: 0, duration: 0.8, ease: easing }, 0)
-  .to(tableBordersLeft, { width: 0, duration: 0.8, ease: easing }, 0)
-  .to(tableBordersTop, { height: 0, duration: 0.8, ease: easing }, 0)
-  .to(tableBordersBottom, { height: 0, duration: 0.8, ease: easing }, 0);
+  .to(tableBordersLeftBottom, { height: 0, duration: 0.8, ease: easing }, 0)
+  .to(tableBordersLeftTop, { height: 0, duration: 0.8, ease: easing }, 0)
+  .to(tableBordersLeftLeft, { width: 0, duration: 0.8, ease: easing }, 0)
+  .to(tableBordersLeftRight, { width: 0, duration: 0.8, ease: easing }, 0)
+  .to(tableBordersRightLeft, { width: 0, duration: 0.8, ease: easing }, 0);
 
 menuTl.to(".navbar-menu", {
   height: "100svh",
-  duration: 0.8,
+  duration: 1.2,
   ease: easing,
 });
 
