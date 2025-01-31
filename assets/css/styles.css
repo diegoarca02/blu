@@ -121,7 +121,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 1px;
     background-color: black !important;
     transform: scaleY(0.75); 
     border-color: black !important;
@@ -132,7 +132,7 @@ body {
     top: 0;
     right: 0; /* Comienza desde la derecha */
     width: 0;
-    height: 2px;
+    height: 1px;
     background-color: black !important;
     transform: scaleY(0.75); 
     border-color: black !important;
@@ -142,7 +142,7 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 2px; /* Ancho del borde */
+    width: 1px; /* Ancho del borde */
     height: 0;  /* Inicia invisible */
     background-color: black !important;
 }
@@ -151,7 +151,7 @@ body {
     position: absolute;
     bottom: 0;  /* Inicia desde la parte inferior */
     right: 0;
-    width: 2px; /* Ancho del borde */
+    width: 1px; /* Ancho del borde */
     height: 0;  /* Inicia invisible */
     background-color: black !important;
 }
@@ -200,9 +200,9 @@ body {
 .progress-container {
     position: relative;
     width: 100%;
-    height: 50px; /* Ajusta la altura según necesites */
-    background: transparent;
-    overflow: hidden;
+    height: 50px; /* Mantén la altura según tu diseño */
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo de la barra */
+    overflow: hidden; /* Oculta el exceso */
 }
   
 .progress-bar {
@@ -210,16 +210,21 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 0;
-    background: white; /* Color de la barra */
-    transition: width 0.5s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    font-weight: bold;
-    font-size: 15px;
+    width: 0; /* Empieza desde 0 */
+    background-color: white; /* Mantiene el color original */
+    transform-origin: left; /* La animación comienza desde la izquierda */
 }
+  
+.progress-bar::after {
+    position: absolute;
+    right: 5px; /* Separación del borde derecho */
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 12px;
+    font-family: "PPMori"; /* Conserva tu fuente personalizada */
+}
+
 
 .section {
     position: relative;
@@ -359,5 +364,7 @@ html, body {
 }
 
 html, body {
-    image-rendering: pixelated; /* Fuerza un renderizado pixel-perfect */
+    -webkit-font-smoothing: antialiased; /* Mejora el renderizado de texto y bordes */
+    -webkit-backface-visibility: hidden; /* Elimina inconsistencias de renderizado */
+    backface-visibility: hidden;
 }

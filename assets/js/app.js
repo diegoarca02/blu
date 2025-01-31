@@ -71,9 +71,9 @@ function adjustHeight() {
   document.querySelectorAll('.tr-height').forEach(element => {
     element.style.height = `${trHeight}px`;
   });
- /*  document.querySelectorAll('.td-width').forEach(element => {
+  document.querySelectorAll('.td-width').forEach(element => {
     element.style.width = `${tdWidth}px`;
-  }); */
+  });
 }
 window.addEventListener('resize', adjustHeight);
 adjustHeight(); // Llamada inicial
@@ -133,16 +133,20 @@ button.addEventListener('mouseleave', (e) => {
 
 // 📌 7. ANIMACIÓN DE PROGRESO
 document.querySelectorAll('.progress-bar').forEach(bar => {
-  gsap.to(bar, {
-    width: `${bar.getAttribute('data-progress')}%`,
-    duration: 1.5,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: "#second-section",
-      start: "top 50%",
-      toggleActions: "play none none reverse",
+  gsap.fromTo(
+    bar,
+    { width: '0%' }, // Empieza desde 0
+    {
+      width: `${bar.getAttribute('data-progress')}%`, // Anima hasta el valor del atributo
+      duration: 1.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#second-section", // Activa cuando #second-section está en vista
+        start: "top 50%",
+        toggleActions: "play none none reverse", // Reproduce y revierte
+      }
     }
-  });
+  );
 });
 
 // 📌 8. SMOOTH SCROLL
