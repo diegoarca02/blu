@@ -358,3 +358,6 @@ html, body {
   
 }
 
+html, body {
+    image-rendering: pixelated; /* Fuerza un renderizado pixel-perfect */
+}
