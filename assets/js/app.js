@@ -61,8 +61,12 @@ function animateBars() {
 // 📌 5. AJUSTE DINÁMICO DE ALTURA
 function adjustHeight() {
   const viewportHeight = window.innerHeight;
+  const trHeight = window.innerHeight / 4;
   document.querySelectorAll('.full-height').forEach(element => {
     element.style.height = `${viewportHeight}px`;
+  });
+  document.querySelectorAll('.tr-height').forEach(element => {
+    element.style.height = `${trHeight}px`;
   });
 }
 window.addEventListener('resize', adjustHeight);
@@ -177,33 +181,44 @@ gsap.utils.toArray('.section').forEach((section, i) => {
 });
 
 
-// 📌 1. VARIABLES GLOBALES
+// 📌 VARIABLES GLOBALES
 const easing2 = "power2.inOut";
 const bgColor2 = "#fff";
 
-// 📌 2. SELECCIONAMOS LOS ELEMENTOS DE LOS BORDES
-const secondSectionBordersRight = document.querySelectorAll(".border-secondSection-right .border");
+// 📌 SELECCIONAMOS LOS ELEMENTOS DE LOS BORDES
+const secondSectionBordersLeft = document.querySelectorAll(".border-secondSection-right .border-left");
 const secondSectionBordersTop = document.querySelectorAll(".border-secondSection-right .border-top");
+const secondSectionBordersBottom = document.querySelectorAll(".border-secondSection-right .border-bottom");
 
+const secondSectionBordersLeftRight = document.querySelectorAll(".border-secondSection-left .border-right");
+const secondSectionBordersLeftTop = document.querySelectorAll(".border-secondSection-left .border-top");
+const secondSectionBordersLeftBottom = document.querySelectorAll(".border-secondSection-left .border-bottom");
+const centerBordersCenter = document.querySelectorAll(".border-center");
+
+// 📌 VERIFICAR SI LOS ELEMENTOS EXISTEN
+if (secondSectionBordersLeft.length === 0 || secondSectionBordersTop.length === 0) {
+    console.error("❌ No se encontraron los bordes en #second-section");
+} else {
+    console.log("✅ Elementos de bordes encontrados");
+}
+
+// 📌 ANIMACIÓN DE LOS BORDES (GSAP)
 const borderSecondSectionTl = gsap.timeline({ paused: true });
 
 borderSecondSectionTl
-.fromTo(
-    secondSectionBordersRight,
-    { width: 0, borderColor: bgColor2 },
-    { width: "100%", duration: 1, ease: easing2 }
-)
-.fromTo(
-    secondSectionBordersTop,
-    { height: 0, borderColor: bgColor2 },
-    { height: "100%", duration: 1, ease: easing2 }
-);
+  .fromTo(secondSectionBordersLeft, { width: "0px" }, { width: "100%", duration: 1.2, ease: easing2 }, 0)
+  .fromTo(secondSectionBordersTop, { height: "0px" }, { height: "100%", duration: 1.2, ease: easing2 }, 0)
+  .fromTo(secondSectionBordersBottom, { height: "0px" }, { height: "100%", duration: 1.2, ease: easing2 }, 0)
+  .fromTo(secondSectionBordersLeftRight, { width: "0px" }, { width: "100%", duration: 1.2, ease: easing2 }, 0)
+  .fromTo(secondSectionBordersLeftTop, { height: "0px" }, { height: "100%", duration: 1.2, ease: easing2 }, 0)
+  .fromTo(secondSectionBordersLeftBottom, { height: "0px" }, { height: "100%", duration: 1.2, ease: easing2 }, 0)
+  .fromTo(centerBordersCenter, { width: "0px" }, { width: "100%", duration: 1.2, ease: easing2 }, 0);
 
-// 📌 4. ACTIVAR LA ANIMACIÓN CUANDO EL USUARIO LLEGUE A `#second-section`
+// 📌 ACTIVAR LA ANIMACIÓN CUANDO EL USUARIO LLEGUE A `#second-section`
 ScrollTrigger.create({
     trigger: "#second-section",
     start: "top 75%", // Se activa cuando el 75% de la sección entra en pantalla
-    markers: true, // 🔹 Activa temporalmente los markers para depuración
+    markers: true, // 🔹 Activar para depuración (elimínalo en producción)
     onEnter: () => {
         console.log("🎬 Animación activada en #second-section");
         borderSecondSectionTl.play();
