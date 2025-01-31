@@ -62,12 +62,18 @@ function animateBars() {
 function adjustHeight() {
   const viewportHeight = window.innerHeight;
   const trHeight = window.innerHeight / 4;
+  const tdWidth = window.innerWidth / 3;
+  console.log(tdWidth);
+  
   document.querySelectorAll('.full-height').forEach(element => {
     element.style.height = `${viewportHeight}px`;
   });
   document.querySelectorAll('.tr-height').forEach(element => {
     element.style.height = `${trHeight}px`;
   });
+ /*  document.querySelectorAll('.td-width').forEach(element => {
+    element.style.width = `${tdWidth}px`;
+  }); */
 }
 window.addEventListener('resize', adjustHeight);
 adjustHeight(); // Llamada inicial

@@ -333,6 +333,16 @@ html, body {
     background-color: white !important;
 }
 
+.table-menu {
+    table-layout: fixed; /* 🔹 Evita que el navegador ajuste los anchos automáticamente */
+}
+
+.td-width {
+    width: 33.33% !important; /* 🔹 Asegura que cada columna tenga el mismo ancho */
+    box-sizing: border-box; /* 🔹 Evita que el `padding` o `border` afecte el tamaño */
+}
+
+
 .table-menu > tbody > tr {
     height: 25%; /* 🔹 Divide la tabla en 4 filas iguales */
 }
@@ -347,3 +357,4 @@ html, body {
     transform: translateX(-50%); 
   
 }
+
