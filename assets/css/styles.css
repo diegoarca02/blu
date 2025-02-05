@@ -128,8 +128,8 @@ body {
   
   /* 🔹 Estilo para las celdas */
 #table-cicle td {
-    border: 1px solid #ccc; /* Bordes blancos */
-    padding: 8px; /* Espaciado dentro de las celdas */
+    padding-right: 8px; /* Espaciado dentro de las celdas */
+    padding-left: 8px; 
 }
   
   /* 🔹 Eliminar bordes izquierdo, superior e inferior del primer td de cada fila */
@@ -143,6 +143,7 @@ body {
   /* 🔹 Centrar el contenido de la segunda columna */
 #table-cicle tr td:nth-child(2) {
     text-align: center;
+    border: none !important;
 }
   
   /* 🔹 Estilo del texto dentro de la tabla */
@@ -154,9 +155,10 @@ body {
 .progress-container {
     position: relative;
     width: 100%;
-    height: 50px; /* Mantén la altura según tu diseño */
+    height: 40px; /* Mantén la altura según tu diseño */
     background-color: rgba(255, 255, 255, 0.1); /* Fondo de la barra */
     overflow: hidden; /* Oculta el exceso */
+    border: 1px solid #ccc;
 }
   
 .progress-bar {
@@ -414,3 +416,146 @@ html, body {
   
 }
 
+.fs-4rem{
+    font-size: 4rem;
+}
+
+.fs-3rem{
+    font-size: 3rem;
+}
+
+.fs-3-5rem{
+    font-size: 3.5rem;
+}
+
+
+.fs-1-3rem{
+    font-size: 1.3rem;
+}
+
+.fs-1-2rem{
+    font-size: 1.2rem;
+}
+
+.border-link{
+    background-color: #00000021;
+    bottom: -5px;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.border-link .border-fill{
+    background-color: #000000;
+    bottom: 0;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .8s cubic-bezier(.24,.43,.15,.97);
+    width: 100%;
+}
+
+.border-button-link:hover .border-fill{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.w-60{
+    width: 50% !important;
+}
+
+.py-10{
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.swiper-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Asegura que las imágenes se adapten correctamente */
+    /* transition: opacity .4s ease-in-out, transform 1.2s ease-in-out;;
+    transform: scale(1.3); */
+}
+
+.swiper-wrapper {
+    align-items: center; /* Centrar los slides verticalmente */
+}
+
+.swiper-slide{
+    padding: 6rem
+}
+
+
+.swiper-slide {
+    overflow: hidden; /* Evita que la imagen se salga del contenedor */
+}
+  
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Hace que la imagen ocupe todo el contenedor */
+    transform-origin: center; /* Centra el zoom dentro de la imagen */
+  }
+
+.swiper-button-next,.swiper-button-prev{
+    align-items: center;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: hsl(0deg 0% 8.29% / 40%);
+    border: unset;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    height: 54px;
+    justify-content: center;
+    transition: .4s ease-in-out;
+    width: 54px;
+    
+}
+
+.swiper-button-next::after,.swiper-button-prev::after{
+    content: '';
+}
+
+.swiper-button-next svg, .swiper-button-prev svg {
+    width: 20px;
+    height: 18px;
+}
+
+.text-grey-500{
+    color: #545454 
+}
+
+#fifth-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: none; /* Oculta el cursor nativo */
+    background-color: #222; /* Color oscuro para asegurar visibilidad */
+    color: white;
+  }
+
+  /* 🔹 Cursor de texto animado */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* No bloquea clics o interacciones */
+    font-size: 20px;
+    font-weight: bold;
+    color: white; /* Asegura que el texto sea visible */
+    background: rgba(30, 144, 255, 0.9); /* Fondo azul */
+    padding: 5px 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Inicialmente oculto */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    transition: opacity 0.2s ease-in-out;
+  }

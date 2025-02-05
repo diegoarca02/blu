@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body class="position-relative" style="background-color: black">
@@ -113,22 +114,22 @@
             <div class="bg h-100 w-100" style="background-image: url(assets/images/fondo2.webp);"></div>
             <div class="h-100 w-100 content" style="background-color: #00000070;">
               <table class="w-100 mb-0 h-100">
-                <tr>
-                  <td class="td-width">
+                <tr class="td-height-two">
+                  <td class="td-width px-5">
                     <h1 class="text-white title titleBurrowing">San Isidro</h1>
                   </td>
-                  <td class="td-width border-secondSection-left">
+                  <td class="td-width border-secondSection-left px-5">
                     <div class="border-top" ></div>
                     <div class="border-bottom" ></div>
                     <h1 class="text-white title">Pre venta</h1>
                   </td> 
-                  <td class="td-width border-secondSection-left">
+                  <td class="td-width border-secondSection-left px-5">
                     <div class="border-top" ></div>
                     <div class="border-bottom"></div>
                     <table id="table-cicle" class="w-100 table">
                       <tr>
                         <td class="bg-transparent first-column">
-                          <h3 class="text-white ff-ppmori mb-0">Demolición</h3>
+                          <h4 class="text-white ff-ppmori mb-0">Demolición</h4>
                         </td>
                         <td class="bg-transparent p-0">
                           <div class="progress-container">
@@ -138,7 +139,7 @@
                       </tr>
                       <tr>
                         <td class="bg-transparent first-column">
-                          <h3 class="text-white ff-ppmori mb-0">Excabación</h3>
+                          <h4 class="text-white ff-ppmori mb-0">Excabación</h4>
                         </td>
                         <td class="bg-transparent p-0">
                           <div class="progress-container">
@@ -148,7 +149,7 @@
                       </tr>
                       <tr>
                         <td class="bg-transparent first-column">
-                          <h3 class="text-white ff-ppmori mb-0">Casco</h3>
+                          <h4 class="text-white ff-ppmori mb-0">Casco</h4>
                         </td>
                         <td class="bg-transparent p-0">
                           <div class="progress-container">
@@ -158,7 +159,7 @@
                       </tr>
                       <tr>
                         <td class="bg-transparent first-column">
-                          <h3 class="text-white ff-ppmori mb-0">Acabados</h3>
+                          <h4 class="text-white ff-ppmori mb-0">Acabados</h4>
                         </td>
                         <td class="bg-transparent p-0">
                           <div class="progress-container">
@@ -174,40 +175,151 @@
                         <div class="border-center"></div>
                     </td>
                 </tr>
-                <tr>
-                  <td class="td-width">
-                    <h1 class="text-white">San Isidro</h1>
-                  </td>
-                  <td class="td-width">
-                    <h1 class="text-white">Pre venta</h1>
-                  </td> 
-                  <td class="td-width">
-                    <div class="d-flex">
-                      <ul class="list-inline">
-                        <li class="text-white">
-                          <h2>Demolición</h2>
-                        </li>
-                        <li class="text-white">
-                          <h2>Excabación</h2>
-                        </li>
-                        <li class="text-white">
-                          <h2>Casco</h2>
-                        </li>
-                        <li class="text-white">
-                          <h2>Acabados</h2>
-                        </li>
-                      </ul>
+                <tr class="td-height-two">
+                  <td class="td-width px-5">
+                    <div class="d-flex justify-content-between align-items-center">
                       <div>
-        
+                        <span class="title text-white counter" 
+                          data-start="0" data-end="23" style="width: 80px !important; display: inline-block;">
+                          23
+                        </span>
+                        <small class="text-white fs-3">Depas</small>
+                      </div>
+                      <div class="text-white">
+                        <span style="font-size: 1.3rem;">
+                          2 Flats, 3 Dúplex,
+                          <br>1 Penthouse
+                        </span>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="td-width px-5">
+                    <div>
+                      <span class="title text-white counter" 
+                        data-start="0" data-end="6" style="width: 50px !important; display: inline-block;">
+                        6
+                      </span>
+                      <small class="text-white fs-3">Pisos + azoteas</small>
+                    </div>
+                  </td>
+                  <td class="td-width px-5">
+                    <div class="row">
+                      <div class="col-6">
+                        <h1 class="fs-5 text-white">Desde</h1>
+                        <div>
+                          <span class="title text-white counter" 
+                            data-start="0" data-end="68" style="width: 80px !important; display: inline-block;">
+                            68
+                          </span>
+                          <small class="text-white fs-3">m<sup>2</sup></small>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <h1 class="fs-5 text-white">Hasta</h1>
+                        <div>
+                          <span class="title text-white counter" 
+                            data-start="0" data-end="257" style="width: 115px !important; display: inline-block;">
+                            257
+                          </span>
+                          <small class="text-white fs-3">m<sup>2</sup></small>
+                        </div>
                       </div>
                     </div>
                   </td>
                 </tr>
+                
+                
+                
               </table>
             </div>
          
           </section>
-          <section id="third-section" class="section" style="height: 100vh;">
+          <section id="third-section" class="section" style="height: 100vh;background-color: #fff6ed;">
+            <div class="row h-100">
+              <div class="col-lg-6 d-flex flex-column moving-texts" style="padding-right: 0px !important;">
+                <div class="border-bottom" style="padding: 124px 125px;border-bottom: 1px solid #cccc !important;">
+                  <h1 class="ff-ppmori fs-3-5rem mb-5">Conecta
+                    <br>
+                    con la ciudad
+                  </h1>
+                  <p class="ff-ppmori fs-1-2rem mb-10">
+                    Entendemos que tu hogar no es solo un espacio físico,
+                    sino un reflejo del entorno y las vivencias que compartes.
+                  </p>
+                  <p class="ff-ppmori fs-1-2rem">
+                    Construimos tu hogar para que vivas con seguridad,
+                    comodidad y libertad.
+                  </p>
+                </div>
+                <!-- Ajustar este div para que ocupe el espacio restante -->
+                <div class="mt-auto p-5 d-flex align-items-center h-100" 
+                style="padding: 124px 125px !important">
+                  <a href="" class="fs-1-3rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 350px;">
+                    <span>
+                      Descargar brochure
+                    </span>
+                    <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                    <div class="border-link">
+                      <div class="border-fill"></div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-6 position-relative" style="height: 100vh;">
+                <div class="bg h-100 w-100" style="background-image: url(assets/images/fondo-section-3.png);z-index: 1;"></div>
+              </div>
+            </div>
+            
+          </section>
+          <section id="fourth-section" class="py-10" style="height: 100vh;background-color: #fff;">
+              <div class="w-100 h-100 d-flex align-items-center">
+                <div class="swiper mySwiperGallery">
+                  <div class="swiper-wrapper d-flex">
+                    <div class="swiper-slide" style="width: 650px;overflow: hidden;">
+                      <img src="assets/images/slide-1.png" alt="" class="w-100 h-100">
+                    </div>
+                    <div class="swiper-slide" style="width: 650px;overflow: hidden;">
+                      <img src="assets/images/slide-1.png" alt="" class="w-100 h-100">
+                    </div>
+                    <div class="swiper-slide" style="width: 650px;overflow: hidden;"> 
+                      <img src="assets/images/slide-1.png" alt="" class="w-100 h-100">
+                    </div>
+                    <div class="swiper-slide" style="width: 650px;overflow: hidden;">
+                      <img src="assets/images/slide-1.png" alt="" class="w-100 h-100">
+                    </div>
+                    <div class="swiper-slide" style="width: 650px;overflow: hidden;">
+                      <img src="assets/images/slide-1.png" alt="" class="w-100 h-100">
+                    </div>
+                    <div class="swiper-slide" style="width: 650px;overflow: hidden;">
+                      <img src="assets/images/slide-1.png" alt="" class="w-100 h-100">
+                    </div>
+                  </div>
+                  <div class="swiper-button-next">
+                    <svg width="20" height="18" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <g>
+                          <path d="M1 8H22.6228" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M15.6726 1L23.4037 8L15.6726 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                  </svg>
+                  </div>
+                  <div class="swiper-button-prev">
+                    <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+                      <g>
+                          <path d="M1 8H22.6228" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M15.6726 1L23.4037 8L15.6726 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </g>
+                  </svg>
+                  </div>
+                </div>
+                
+                
+              </div>
+          </section>
+          <section id="fifth-section">
+            <h1>Mueve el cursor aquí</h1>
+            <div class="custom-cursor" id="cursor">Hola!</div>
+          </section>
+          <section id="sixth-section" class="section" style="height: 100vh;">
             <div class="bg h-100 w-100" style="background-image: url(assets/images/fdsfds.jpg);"></div>
             <div class="h-100 w-100 content" style="background-color: #00000070;">
               <table class="w-100 mb-0 full-height h-100">
@@ -295,6 +407,7 @@
               </table>
             </div>
           </section>
+          
         </div>
     </div>
     
@@ -313,8 +426,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
     <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
 
-
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/counter.js"></script>
 </body>
 </html>
