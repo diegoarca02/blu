@@ -362,50 +362,44 @@ section.addEventListener("mousemove", (e) => {
 });
 
 /////////////////////////////
+console.clear();
 
-// Check out the really ⚡️ powerful gsap.utils if you're not familar with them https://gsap.com/docs/v3/GSAP/UtilityMethods
-const scaleMax = gsap.utils.mapRange(1, document.querySelectorAll(".card").length - 1, 0.8, 1);  // Convert values we know to values we want https://gsap.com/docs/v3/GSAP/UtilityMethods/mapRange()
-const time = 2; 
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-gsap.set('.card', {
-  y: (index) => 30 * index, // set offset
-  transformStyle: "preserve-3d", // For the perspecitve effect
-  // transformPerspective: 1000, // For the perspecitve effect
-  transformOrigin: "center top", 
-})
-
-//--------------------------------//
-// The animation 
-//--------------------------------//
-const tl = gsap.timeline({
-  scrollTrigger:{
-    trigger: "section",
-    start: "top top",
-    end: `${window.innerHeight * 5} top`,
-    scrub: true, 
-    pin: true,
-    markers: true,
-  }
+ScrollSmoother.create({
+  smooth: 2,
+  normalizeScroll: true,
+  smoothTouch: 0.1
 });
 
-// Animte cards up from off screen one by one.
-tl.from(".card", {
-  y: () => window.innerHeight,
-  duration: time/2,
-  stagger: time
-});
+const cards = gsap.utils.toArray(".stackingcard");
 
-// 
-tl.to(
-  ".card:not(:last-child)",
-  {
-    rotationX: -20,
-    scale: (index) => scaleMax(index), // dynamlicly get scale based on the index of the current card
-    stagger: {
-      each: time
+cards.forEach((card, i) => {
+  gsap.to(card, {
+    scale: 1,
+    ease: "none",
+    scrollTrigger: {
+      trigger: card,
+      start: "top-=" * i + " 40%",
+    
+      scrub: true
     }
-  },
-  time // Start tween when the first cards has done animating
-);
+  });
+  ScrollTrigger.create({
+    trigger: card,
+    end: "top center",
+    endTrigger: ".end-element",
+    pin: true,
+    pinSpacing: false,
+    markers: true,
+    id: "card-" + i
+  });
+});
 
-// END The animation --------------//
+/* ScrollTrigger.addEventListener("refresh", () => {
+  document.querySelectorAll(".pin-spacer").forEach(spacer => {
+    spacer.style.marginBottom = "60px";
+  });
+}); */
+
+ScrollTrigger.refresh();

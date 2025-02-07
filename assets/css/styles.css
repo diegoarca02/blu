@@ -549,44 +549,30 @@ html, body {
 }
 
 /******************/
-
-* {
-    box-sizing: border-box;
-  }
-  
-  section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100svh;
-  }
-  
-  .cards {
-    padding: 0;
-    margin: 0;
-    display: grid;
-    width: 100vw;
-    height: 100vh;
-    border: 2px solid red;
-  }
-  .cards > * {
-    grid-area: 1/1/2/2;
-  }
-  .cards li {
-    list-style: none;
-  }
-  
-  .card {
-    height: 100%;
-    background-color: red;
-    min-height: auto;
-    padding: 30px;
-  }
-  
-  .empty {
+.container-pins {
+   overflow: hidden;
     width: 100%;
-    height: 100vh;
-    font-size: 200px;
-    display: flex;
-    justify-content: center;
   }
+  
+  .stackingcards {
+    color: white;
+    position: relative;
+    
+  
+    .stackingcard {
+      border: 1px solid #ccc;
+      background-color: #cacaca;
+      color: #020202;
+      height: 500px;
+      width: 100%;
+      transform-origin: top center;
+      box-sizing: border-box;
+    }
+  }
+  
+  .end-element {
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid red;
+  }
+
