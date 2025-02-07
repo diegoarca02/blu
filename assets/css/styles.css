@@ -472,49 +472,30 @@ html, body {
     padding-bottom: 5rem;
 }
 
-.swiper-slide img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover; /* Asegura que las imágenes se adapten correctamente */
-    /* transition: opacity .4s ease-in-out, transform 1.2s ease-in-out;;
-    transform: scale(1.3); */
-}
 
-.swiper-wrapper {
-    align-items: center; /* Centrar los slides verticalmente */
-}
-
-.swiper-slide{
-    padding: 6rem
-}
-
-
-.swiper-slide {
-    overflow: hidden; /* Evita que la imagen se salga del contenedor */
-}
-  
-.swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Hace que la imagen ocupe todo el contenedor */
-    transform-origin: center; /* Centra el zoom dentro de la imagen */
-  }
 
 .swiper-button-next,.swiper-button-prev{
     align-items: center;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: hsl(0deg 0% 8.29% / 40%);
+    background-color: hsla(0, 0%, 8%, 0.294);
     border: unset;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     flex-direction: row;
-    height: 54px;
+    height: 75px;
     justify-content: center;
     transition: .4s ease-in-out;
-    width: 54px;
-    
+    width: 75px;   
+}
+
+.swiper-button-next{
+    right: 50px !important;
+}
+
+.swiper-button-prev{
+    left: 50px !important;
 }
 
 .swiper-button-next::after,.swiper-button-prev::after{
@@ -530,32 +511,82 @@ html, body {
     color: #545454 
 }
 
-#fifth-section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    cursor: none; /* Oculta el cursor nativo */
-    background-color: #222; /* Color oscuro para asegurar visibilidad */
-    color: white;
-  }
-
-  /* 🔹 Cursor de texto animado */
-  .custom-cursor {
+.flair {
+    width: 100px;
+    height: 100px;
     position: fixed;
     top: 0;
     left: 0;
-    pointer-events: none; /* No bloquea clics o interacciones */
-    font-size: 20px;
-    font-weight: bold;
-    color: white; /* Asegura que el texto sea visible */
-    background: rgba(30, 144, 255, 0.9); /* Fondo azul */
-    padding: 5px 12px;
-    border-radius: 5px;
+    pointer-events: none;
+    transform-origin: center;
+}
+
+.flair--3 {
+    color: white !important;
+    font-size: 2.3rem;
+    font-family: "PPMori";
     white-space: nowrap;
+}
+
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la pantalla */
+    overflow: hidden;
+}
+
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0; /* Inicialmente oculto */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    transition: opacity 0.2s ease-in-out;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Envía el video al fondo */
+}
+
+/******************/
+
+* {
+    box-sizing: border-box;
+  }
+  
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100svh;
+  }
+  
+  .cards {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    border: 2px solid red;
+  }
+  .cards > * {
+    grid-area: 1/1/2/2;
+  }
+  .cards li {
+    list-style: none;
+  }
+  
+  .card {
+    height: 100%;
+    background-color: red;
+    min-height: auto;
+    padding: 30px;
+  }
+  
+  .empty {
+    width: 100%;
+    height: 100vh;
+    font-size: 200px;
+    display: flex;
+    justify-content: center;
   }

@@ -268,82 +268,144 @@ gsap.utils.toArray('.moving-texts').forEach((container) => {
   });
 });
 // ✅ Registrar ScrollTrigger para GSAP
-gsap.registerPlugin(ScrollTrigger);
-
-// ✅ Antes de inicializar Swiper, aseguramos que todas las imágenes tengan el tamaño correcto para evitar parpadeos
 gsap.set(".swiper-slide img", { scale: 1 });
 
 // ✅ Inicializar Swiper con animaciones suaves
-var swiper = new Swiper(".mySwiperGallery", {
+
+/* var swiper = new Swiper(".mySwiperGallerys", {
+  effect: "coverflow",
+  grabCursor: true,
   slidesPerView: "auto",
   centeredSlides: true,
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 100,
+    modifier: 2.5
+  },
+  keyboard: {
+    enabled: true
+  },
+  mousewheel: {
+    thresholdDelta: 70
+  },
   loop: true,
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  speed: 600, // Transición fluida
+}); */
+
+var swiper = new Swiper(".mySwiperGallery", {
+  effect: "coverflow",
+  slidesPerView: "auto",
+  centeredSlides: true,
+  loop: true,
+  keyboard: {
+    enabled: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  coverflowEffect: {
+    rotate: 3, // Mantén el giro
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: false,
+  },
   on: {
-    // 🔹 Al inicializar Swiper, aplicamos el zoom SUAVEMENTE a la imagen activa
     init: function () {
-      gsap.to(".swiper-slide-active img", {
-        scale: 1.4, // Zoom en la imagen central al cargar
-        duration: 0.8, // Menos duración para eliminar parpadeo
-        ease: "power2.out",
-      });
+      /* swiper.update();  */
+      // Asegúrate de que los cálculos iniciales sean correctos
     },
-  },
-});
-
-// ✅ Aplicamos zoom inmediato a la imagen central cuando cambia el slide
-swiper.on("slideChangeTransitionStart", function () {
-  // 🔹 Reducimos el tamaño de todas las imágenes (incluyendo la que deja de ser activa)
-  gsap.to(".swiper-slide img", {
-    scale: 1, // Restablece el tamaño de todas las imágenes
-    duration: 0.3, // Más rápido
-    ease: "power2.out",
-  });
-});
-
-// ✅ Cuando el slide se centra, aplica el zoom y lo mantiene
-swiper.on("slideChangeTransitionEnd", function () {
-  gsap.to(".swiper-slide-active img", {
-    scale: 1.4, // Mantiene el zoom en la imagen activa
-    duration: 0.4, // Transición fluida
-    ease: "power2.out",
-  });
-});
-
-// ✅ Zoom interno en las imágenes cuando se llegue a #fourth-section
-gsap.to(".swiper-slide img", {
-  scale: 1.2, // Zoom interno SIN afectar el tamaño del contenedor
-  duration: 1, // Suavidad en la animación
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: "#fourth-section", // Se activa cuando esta sección entra en pantalla
-    start: "top 70%", // Cuando el 70% de la sección esté en pantalla
-    toggleActions: "play reverse play reverse", // Activa y revierte el zoom con el scroll
+  /*   slideChangeTransitionStart: function () {
+      swiper.update(); // Recalcula dinámicamente el tamaño al cambiar slides
+    }, */
+   /*  slideChangeTransitionEnd: function () {
+      swiper.update(); // Evita desalineaciones al terminar la transición
+    }, */
   },
 });
 
 
-const cursor = document.getElementById("cursor");
-    const section = document.getElementById("fifth-section");
 
-    // Configurar GSAP para mover el cursor de texto
-    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 
-    let xTo = gsap.quickTo(cursor, "x", { duration: 0.1, ease: "power3" }),
-        yTo = gsap.quickTo(cursor, "y", { duration: 0.1, ease: "power3" });
+gsap.set(".flair", { xPercent: -50, yPercent: -50, opacity: 0 }); // Inicialmente oculto
 
-    // Mostrar y mover el cursor solo dentro de #fifth-section
-    section.addEventListener("mousemove", (e) => {
-      cursor.style.opacity = 1; // Asegura que el texto sea visible
-      xTo(e.clientX);
-      yTo(e.clientY);
-    });
+let xTo = gsap.quickTo(".flair", "x", { duration: 0.2, ease: "power3" }),
+    yTo = gsap.quickTo(".flair", "y", { duration: 0.2, ease: "power3" });
 
-    // Ocultar el cursor cuando el mouse salga de #fifth-section
-    section.addEventListener("mouseleave", () => {
-      cursor.style.opacity = 0;
-    });
+const section = document.getElementById("fifth-section");
+const flair = document.querySelector(".flair");
+
+// Detectar movimiento solo dentro de la sección
+section.addEventListener("mousemove", (e) => {
+  let bounds = section.getBoundingClientRect(); // Obtiene los límites del contenedor
+
+  // Calcula la posición del cursor relativa al viewport
+  let x = e.clientX;
+  let y = e.clientY;
+
+  // Mueve la imagen solo si está dentro de los límites de la sección
+  if (
+    x >= bounds.left && 
+    x <= bounds.right && 
+    y >= bounds.top && 
+    y <= bounds.bottom
+  ) {
+    xTo(x);
+    yTo(y + window.scrollY);
+    gsap.to(flair, { opacity: 1, duration: 0.2, ease: "power3" }); // Aparece
+  }
+});
+
+/////////////////////////////
+
+// Check out the really ⚡️ powerful gsap.utils if you're not familar with them https://gsap.com/docs/v3/GSAP/UtilityMethods
+const scaleMax = gsap.utils.mapRange(1, document.querySelectorAll(".card").length - 1, 0.8, 1);  // Convert values we know to values we want https://gsap.com/docs/v3/GSAP/UtilityMethods/mapRange()
+const time = 2; 
+
+gsap.set('.card', {
+  y: (index) => 30 * index, // set offset
+  transformStyle: "preserve-3d", // For the perspecitve effect
+  // transformPerspective: 1000, // For the perspecitve effect
+  transformOrigin: "center top", 
+})
+
+//--------------------------------//
+// The animation 
+//--------------------------------//
+const tl = gsap.timeline({
+  scrollTrigger:{
+    trigger: "section",
+    start: "top top",
+    end: `${window.innerHeight * 5} top`,
+    scrub: true, 
+    pin: true,
+    markers: true,
+  }
+});
+
+// Animte cards up from off screen one by one.
+tl.from(".card", {
+  y: () => window.innerHeight,
+  duration: time/2,
+  stagger: time
+});
+
+// 
+tl.to(
+  ".card:not(:last-child)",
+  {
+    rotationX: -20,
+    scale: (index) => scaleMax(index), // dynamlicly get scale based on the index of the current card
+    stagger: {
+      each: time
+    }
+  },
+  time // Start tween when the first cards has done animating
+);
+
+// END The animation --------------//
