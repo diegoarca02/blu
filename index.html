@@ -6,17 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- CSS de PhotoSwipe -->
+    <link rel="stylesheet" href="./assets/css/photoswipe.css">
+
     <link rel="stylesheet" href="./assets/css/styles.css">
+
 </head>
 <body class="position-relative" style="background-color: black">
-    <div id="smooth-wrapper">
+    <div id="smooth-wrapper" style="overflow: initial !important;">
         <div id="smooth-content">
           <div class="navbar-menu position-absolute w-100" >
             <table class="table-menu w-100 full-height mb-0">
-              <tr class="px-5" style="height: 150px !important;">
-                <td class="p-5 bg-cream border-table-right">
+              <tr class="px-4" style="height: 103px;">
+                <td class="px-4 bg-cream border-table-right">
                   <div class="border-left"  style="z-index: 1;"></div>
-                  <img src="assets/images/logo-b.webp" alt="" style="height: 50px;">
+                  <img src="assets/images/logo_black.png" alt="" style="height: 35px;">
                 </td>
                 <td class="bg-cream w-350px border-table-left">
                   <div class="border-right"  style="z-index: 1;"></div>
@@ -27,341 +31,379 @@
                 <td class="p-0 bg-cream w-350px border-table-right">
                   <table class="h-100 w-100">
                     <tr>
-                      <td class="px-5 border-table-right">
+                      <td class="px-4 border-table-right">
                         <div class="border-left"  style="z-index: 1;"></div>
-                        <h1 class="menu-title">Proyecto</h1>
+                        <h1 class="menu-title mb-0" style="font-size: 50px;">Proyecto</h1>
                       </td>
                     </tr>
                     <tr>
-                      <td class="px-5 border-table-right">
+                      <td class="px-4 border-table-right">
                         <div class="border-left"  style="z-index: 1;"></div>
-                        <h1 class="menu-title">Ubicación</h1>
+                        <h1 class="menu-title mb-0" style="font-size: 50px;">Ubicación</h1>
                       </td>
                     </tr>
                   </table>
                 </td>
-                <td class="px-5 bg-cream w-350px border-table-left">
+                <td class="px-4 bg-cream w-350px border-table-left">
                   <div class="border-right"  style="z-index: 1;"></div>
-                  <span class="info-title">Info@inmobiliariablu +916 742 7421</span>
+                  <div class="d-flex gap-5">
+                    <span class="info-title" style="font-size: 1.1rem;">Info@inmobiliariablu</span>
+                    <span class="info-title" style="font-size: 1.1rem;">+916 742 7421</span>
+                  </div>
                 </td>
               </tr>
               <tr class="tr-height">
                 <td class="p-0">
                   <table class="h-100 w-100">
                     <tr>
-                      <td class="px-5 bg-cream border-table-right">
+                      <td class="px-4 bg-cream border-table-right">
                         <div class="border-left"  style="z-index: 1;"></div>
-                        <h1 class="menu-title">Recorrido 360</h1>
+                        <h1 class="menu-title mb-0" style="font-size: 50px;">Recorrido 360</h1>
                       </td>
                     </tr>
                     <tr>
-                      <td class="px-5 bg-cream border-table-right">
+                      <td class="px-4 bg-cream border-table-right">
                         <div class="border-left"  style="z-index: 1;"></div>
-                        <h1 class="menu-title">Planos</h1>
+                        <h1 class="menu-title mb-0" style="font-size: 50px;">Planos</h1>
                       </td>
                     </tr>
                   </table>
                 </td>
-                <td class="px-5 bg-cream w-350px border-table-left">
+                <td class="px-4 bg-cream w-350px border-table-left">
                   <div class="border-right"  style="z-index: 1;"></div>
-                  <span class="info-title">Villareal 385 - 395, San Isidro</span>
+                  <span class="info-title" style="font-size: 1.1rem;">Villareal 385 - 395, San Isidro</span>
                 </td>
               </tr>
               <tr class="tr-height">
                 <td class="p-0">
                   <table class="h-100 w-100">
                     <tr>
-                      <td class="px-5 bg-cream border-table-right">
+                      <td class="px-4 bg-cream border-table-right">
                         <div class="border-left"  style="z-index: 1;"></div>
-                        <h1 class="menu-title">Aliados</h1>
+                        <h1 class="menu-title mb-0" style="font-size: 50px;">Aliados</h1>
                       </td>
                     </tr>
                     <tr>
-                      <td class="px-5 bg-cream">
-                        <h1 class="menu-title">Contacto</h1>
+                      <td class="px-4 bg-cream border-table-right">
+                        <div class="border-left"  style="z-index: 1;"></div>
+                        <h1 class="menu-title mb-0" style="font-size: 50px;">Contacto</h1>
                       </td>
                     </tr>
                   </table>
                 </td>
-                <td class="px-5 bg-cream w-350px border-table-left">
+                <td class="px-4 bg-cream w-350px border-table-left">
                   <div class="border-right"  style="z-index: 1;"></div>
-                  <ul class="list-inline d-flex border-none gap-4">
-                    <li><span class="info-title">Instagram</span></li>
-                    <li><span class="info-title">Facebook</span></li>
-                    <li><span class="info-title">Linkedin</span></li>
+                  <ul class="list-inline d-flex border-none gap-5">
+                    <li><span class="info-title info-title-social cursor-pointer" style="font-size: 1.1rem;">Instagram</span></li>
+                    <li><span class="info-title info-title-social cursor-pointer" style="font-size: 1.1rem;">Facebook</span></li>
+                    <li><span class="info-title info-title-social cursor-pointer" style="font-size: 1.1rem;">Linkedin</span></li>
                   </ul>
+                </td>
+              </tr>
+              <tr class="" style="height: 100px !important;">
+                <td class="p-0 bg-cream w-350px border-table-left" >
+                 
+                </td>
+                <td class="px-4 bg-cream w-350px border-table-left">
+                  <div class="border-right"  style="z-index: 1;"></div>
                 </td>
               </tr>
             </table>
           </div>
-          <section style="background-image: url(assets/images/main.webp);height: 100vh;">
-            <div class="h-100 w-100" style="background-color: #00000070;">
-              <div class="px-5 py-5 h-100">
-                <div class="d-flex justify-content-between">
-                  <img src="assets/images/logo-b.webp" alt="" style="height: 50px;">
-                    <div class="btn-menu-container">
-                        <div class="btn-menu" onclick="animateBars()">
-                            <div class="line line-1"></div>
-                            <div class="line line-2"></div>
-                            <div class="line line-3"></div>
-                        </div>
+
+          <section style="background-color: #00000070;height: 100vh;;" class="position-relative video-container">
+            <video class="background-video" autoplay loop muted>
+              <source src="./assets/videos/videoplayback.mp4" type="video/mp4">
+              Tu navegador no soporta videos.
+            </video>
+            <div class="h-100 w-100">
+              <div class="p-4 h-100">
+                <div class="d-flex justify-content-between align-items-center">
+                    <img src="assets/images/logo_white.png" alt="" style="height: 35px;">
+                    <div style="z-index: 2;cursor: pointer;">
+                      <div onclick="animateTheBurger()">
+                        <svg id="theBurger" xmlns="http://www.w3.org/2000/svg" width="80" height="60" viewBox="0 0 200 100">
+                          <g id="burger" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="7">
+                            <line class="patty" x1="50" y1="61" x2="150" y2="61" />
+                            <path class="buns" d="M50,29h96c27,0,48-1,34,40-18.12,53.08-48.64,23.86-48.64,23.86L60.64,22.14"/>
+                            <path class="buns" d="M50,94h96c27,0,48,1,34-40C161.88,1,131.36,30.17,131.36,30.17L60.64,100.88"/>
+                          </g>
+                        </svg>
+                      </div>
+                      
                     </div>
                 </div>
-            </div>
-            </div>
-          </section>
-          <section id="second-section" class="section" style="height: 100vh">
-            <div class="bg h-100 w-100" style="background-image: url(assets/images/fondo2.webp);"></div>
-            <div class="h-100 w-100 content" style="background-color: #00000070;">
-              <table class="w-100 mb-0 h-100">
-                <tr class="td-height-two">
-                  <td class="td-width px-5">
-                    <h1 class="text-white title titleBurrowing">San Isidro</h1>
-                  </td>
-                  <td class="td-width border-secondSection-left px-5">
-                    <div class="border-top" ></div>
-                    <div class="border-bottom" ></div>
-                    <h1 class="text-white title">Pre venta</h1>
-                  </td> 
-                  <td class="td-width border-secondSection-left px-5">
-                    <div class="border-top" ></div>
-                    <div class="border-bottom"></div>
-                    <table id="table-cicle" class="w-100 table">
-                      <tr>
-                        <td class="bg-transparent first-column">
-                          <h4 class="text-white ff-ppmori mb-0">Demolición</h4>
-                        </td>
-                        <td class="bg-transparent p-0">
-                          <div class="progress-container">
-                            <div class="progress-bar ff-ppmori" data-progress="75">75%</div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="bg-transparent first-column">
-                          <h4 class="text-white ff-ppmori mb-0">Excabación</h4>
-                        </td>
-                        <td class="bg-transparent p-0">
-                          <div class="progress-container">
-                            <div class="progress-bar ff-ppmori" data-progress="50">50%</div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="bg-transparent first-column">
-                          <h4 class="text-white ff-ppmori mb-0">Casco</h4>
-                        </td>
-                        <td class="bg-transparent p-0">
-                          <div class="progress-container">
-                            <div class="progress-bar ff-ppmori" data-progress="30">30%</div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="bg-transparent first-column">
-                          <h4 class="text-white ff-ppmori mb-0">Acabados</h4>
-                        </td>
-                        <td class="bg-transparent p-0">
-                          <div class="progress-container">
-                            <div class="progress-bar ff-ppmori" data-progress="20">20%</div>
-                          </div>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <tr>
-                    <td colspan="3" class="position-relative">
-                        <div class="border-center"></div>
-                    </td>
-                </tr>
-                <tr class="td-height-two">
-                  <td class="td-width px-5">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div>
-                        <span class="title text-white counter" 
-                          data-start="0" data-end="23" style="width: 80px !important; display: inline-block;">
-                          23
-                        </span>
-                        <small class="text-white fs-3">Depas</small>
-                      </div>
-                      <div class="text-white">
-                        <span style="font-size: 1.3rem;">
-                          2 Flats, 3 Dúplex,
-                          <br>1 Penthouse
-                        </span>
-                      </div>
-                    </div>
-                  </td>
-                  <td class="td-width px-5">
-                    <div>
-                      <span class="title text-white counter" 
-                        data-start="0" data-end="6" style="width: 50px !important; display: inline-block;">
-                        6
-                      </span>
-                      <small class="text-white fs-3">Pisos + azoteas</small>
-                    </div>
-                  </td>
-                  <td class="td-width px-5">
-                    <div class="row">
-                      <div class="col-6">
-                        <h1 class="fs-5 text-white">Desde</h1>
-                        <div>
-                          <span class="title text-white counter" 
-                            data-start="0" data-end="68" style="width: 80px !important; display: inline-block;">
-                            68
-                          </span>
-                          <small class="text-white fs-3">m<sup>2</sup></small>
-                        </div>
-                      </div>
-                      <div class="col-6">
-                        <h1 class="fs-5 text-white">Hasta</h1>
-                        <div>
-                          <span class="title text-white counter" 
-                            data-start="0" data-end="257" style="width: 115px !important; display: inline-block;">
-                            257
-                          </span>
-                          <small class="text-white fs-3">m<sup>2</sup></small>
-                        </div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                
-                
-                
-              </table>
+              </div>
             </div>
           </section>
+
+          <div class="d-none d-lg-block">
+            <div id="second-section" class="py-10 d-flex align-items-center second-section" style="height: 100vh;background-color: white;">
+              <section  class="section" style="height: -webkit-fill-available;">
+                <div class="bg h-100 w-100" style="background-image: url(assets/images/fondo2.webp);z-index: 1;"></div>
+                <div class="h-100 w-100 content" style="background-color: #00000070;position: absolute;z-index: 2">
+                  <table class="w-100 mb-0 h-50" id="table-second-section">
+                    <tr class="td-height-two h-50">
+                      <td class="td-width px-5 h-100">
+                        <h1 class="text-white title titleBurrowing">San Isidro</h1>
+                      </td>
+                      <td class="td-width border-secondSection-left px-5 h-100">
+                        <div class="border-bottom"></div>
+                        <h1 class="text-white title">Pre venta</h1>
+                      </td> 
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="position-relative">
+                            <div class="border-center"></div>
+                        </td>
+                    </tr>
+                  </table>
+                  <table class="w-100 mb-0 h-50" id="table-second-section">
+                    <tr class="td-height-two">
+                      <td class="td-width px-5 border-secondSection-right">
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="border-top" style="top: 0% !important;"></div>
+                          <div>
+                            <span class="title text-white counter" 
+                              data-start="0" data-end="18" style="width: 80px !important; display: inline-block;">
+                              18
+                            </span>
+                            <small class="text-white fs-3">Depas</small>
+                          </div>
+                          <div class="text-white">
+                            <span style="font-size: 1.3rem;">
+                              14 Flats y <br> 4 Dúplex
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="td-width px-5 border-secondSection-right">
+                        <div class="border-top" style="top: 0% !important;"></div>
+                        <div>
+                          <span class="title text-white counter" 
+                            data-start="0" data-end="6" style="width: 50px !important; display: inline-block;">
+                            6
+                          </span>
+                          <small class="text-white fs-3">Pisos + Estac.</small>
+                        </div>
+                      </td>
+                      <td class="td-width px-5">
+                        <div class="row">
+                          <div class="col-6">
+                            <h1 class="fs-5 text-white">Desde</h1>
+                            <div>
+                              <span class="title text-white counter" 
+                                data-start="0" data-end="68" style="width: 80px !important; display: inline-block;">
+                                68
+                              </span>
+                              <small class="text-white fs-3">m<sup>2</sup></small>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <h1 class="fs-5 text-white">Hasta</h1>
+                            <div>
+                              <span class="title text-white counter" 
+                                data-start="0" data-end="257" style="width: 115px !important; display: inline-block;">
+                                257
+                              </span>
+                              <small class="text-white fs-3">m<sup>2</sup></small>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="d-block d-lg-none">
+            <div id="second-section" class="py-10 d-flex align-items-center second-section" style="height: 100vh;background-color: white;">
+              <section  class="section" style="height: -webkit-fill-available;">
+                <div class="bg h-100 w-100" style="background-image: url(assets/images/fondo2.webp);
+                z-index: 1;
+                background-position: left !important;
+                "></div>
+                <div class="h-100 w-100 content" style="background-color: #000000a8;position: absolute;z-index: 2">
+                  <div class="row h-100">
+                    <div class="col-lg-12 d-flex align-items-center px-5 border-secondSection-left">
+                      <h1 class="text-white title titleBurrowing">San Isidro</h1>
+                      <div class="border-right"  style="z-index: 1;"></div>
+                    </div>
+                    <div class="col-lg-12 d-flex align-items-center px-5 border-secondSection-left">
+                      <h1 class="text-white title">Pre venta</h1>
+                      <div class="border-right"  style="z-index: 1;"></div>
+                    </div>
+                    <div class="col-lg-12 d-flex align-items-center px-5 border-secondSection-left">
+                      <h1 class="text-white title">6 Pisos + Estac.</h1>
+                      <div class="border-right"  style="z-index: 1;"></div>
+                    </div>
+                    <div class="col-lg-12 d-flex align-items-center px-5 border-secondSection-left">
+                      <div class="d-flex align-items-center justify-content-between w-100">
+                        <h1 class="text-white title">18 Depas</h1>
+                        <h1 class="text-white title">14 Flats y 4 Dúplex</h1>
+                      </div>
+                      <div class="border-right"  style="z-index: 1;"></div>
+                    </div>
+                    <div class="col-lg-12 d-flex align-items-center px-5">
+                      <div class="d-flex align-items-center justify-content-between w-100">
+                        <h1 class="text-white title">Desde 68 m2</h1>
+                        <h1 class="text-white title">hasta 257 m2</h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
           <section id="third-section" class="section" style="height: 100vh;background-color: #fff6ed;">
             <div class="row h-100">
               <div class="col-lg-6 d-flex flex-column moving-texts" style="padding-right: 0px !important;">
-                <div class="border-bottom" style="padding: 124px 125px;border-bottom: 1px solid #cccc !important;">
-                  <h1 class="ff-ppmori fs-3-5rem mb-5">Conecta
+                <div class="" style="padding: 124px 125px;">
+                  <h1 class="ff-ppmori fs-4rem mb-5">
+                    Conecta
                     <br>
                     con la ciudad
                   </h1>
-                  <p class="ff-ppmori fs-1-2rem mb-10">
-                    Entendemos que tu hogar no es solo un espacio físico,
-                    sino un reflejo del entorno y las vivencias que compartes.
-                  </p>
-                  <p class="ff-ppmori fs-1-2rem">
-                    Construimos tu hogar para que vivas con seguridad,
-                    comodidad y libertad.
-                  </p>
+                  <div style="margin-bottom: 7rem;">
+                    <p class="ff-ppmori fs-1-2rem mb-10">
+                      Entendemos que tu hogar no es solo un espacio físico,
+                      sino un reflejo del entorno y las vivencias que compartes.
+                    </p>
+                    <p class="ff-ppmori fs-1-2rem">
+                      Construimos tu hogar para que vivas con seguridad,
+                      comodidad y libertad.
+                    </p>
+                  </div>
+ 
+                  <div class="border-button-link" style="height: 60px;">
+                    <a href="" class="fs-1-3rem text-dark d-flex justify-content-between align-items-center position-relative w-100" style="text-decoration: none !important;">
+                      <span class="text-uppercase">
+                        Descargar brochure
+                      </span>
+                      <svg data-v-7bf60a50="" width="22" height="22" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                      <div class="border-link" style="height: 2px;bottom: -15px !important;">
+                        <div class="border-fill"></div>
+                      </div>
+                    </a>
+                  </div>
                 </div>
                 <!-- Ajustar este div para que ocupe el espacio restante -->
-                <div class="mt-auto p-5 d-flex align-items-center h-100" 
-                style="padding: 124px 125px !important">
-                  <a href="" class="fs-1-3rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 350px;">
-                    <span>
-                      Descargar brochure
-                    </span>
-                    <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
-                    <div class="border-link">
-                      <div class="border-fill"></div>
-                    </div>
-                  </a>
-                </div>
+                
               </div>
               <div class="col-lg-6 position-relative" style="height: 100vh;">
-                <div class="bg h-100 w-100" style="background-image: url(assets/images/fondo-section-3.png);z-index: 1;"></div>
+                <div class="bg h-100 w-100" style="background-image: url(assets/images/fondo-section-3.png);
+                z-index: 1;background-position: bottom center!important;"></div>
               </div>
             </div>
             
           </section>
-          <section id="fourth-section" class="py-10" style="height: 100vh;background-color: #fff;">
-              <div class="w-100 h-100 d-flex align-items-center">
-                <div class="swiper mySwiperGallery">
-                  <div class="swiper-wrapper d-flex">
-                    <div class="swiper-slide" style="width: 650px !important;overflow: hidden;">
-                      <img src="assets/images/slide-1.jpg" alt="" class="w-100 h-100">
+          <section id="fourth-section" class="py-10" style="height: 100vh; background-color: #fff;">
+            <div class="w-100 h-100 d-flex align-items-center">
+                <div class="swiper swiper-gallery swiper-container">
+                    <div class="swiper-wrapper d-flex">
+                        <div class="swiper-slide swiper-slide-gallery" style="width: 650px !important; overflow: hidden;">
+                            <a href="assets/images/slide-1.jpg" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+                                <img src="assets/images/slide-1.jpg" alt="" class="w-100 h-100">
+                            </a>
+                        </div>
+                        <div class="swiper-slide swiper-slide-gallery" style="width: 650px !important; overflow: hidden;">
+                            <a href="assets/images/slide-2.jpg" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+                                <img src="assets/images/slide-2.jpg" alt="" class="w-100 h-100">
+                            </a>
+                        </div>
+                        <div class="swiper-slide swiper-slide-gallery" style="width: 650px !important; overflow: hidden;">
+                            <a href="assets/images/slide-3.png" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+                                <img src="assets/images/slide-3.png" alt="" class="w-100 h-100">
+                            </a>
+                        </div>
+                        <div class="swiper-slide swiper-slide-gallery" style="width: 650px !important; overflow: hidden;">
+                          <a href="assets/images/slide-3.png" data-pswp-width="1200" data-pswp-height="800" target="_blank">
+                              <img src="assets/images/slide-3.png" alt="" class="w-100 h-100">
+                          </a>
+                      </div>
                     </div>
-                    <div class="swiper-slide" style="width: 650px !important;overflow: hidden;">
-                      <img src="assets/images/slide-2.jpg" alt="" class="w-100 h-100">
+        
+                    <div class="swiper-button-next swiper-button-next-gallery">
+                        <svg width="20" height="18" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g>
+                                <path d="M1 8H22.6228" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M15.6726 1L23.4037 8L15.6726 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
                     </div>
-                    <div class="swiper-slide" style="width: 650px !important;overflow: hidden;"> 
-                      <img src="assets/images/slide-3.png" alt="" class="w-100 h-100">
+                    <div class="swiper-button-prev swiper-button-prev-gallery">
+                        <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+                            <g>
+                                <path d="M1 8H22.6228" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M15.6726 1L23.4037 8L15.6726 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </g>
+                        </svg>
                     </div>
-                    <div class="swiper-slide" style="width: 650px !important;overflow: hidden;">
-                      <img src="assets/images/slide-1.jpg" alt="" class="w-100 h-100">
-                    </div>
-                    <div class="swiper-slide" style="width: 650px !important;overflow: hidden;">
-                      <img src="assets/images/slide-2.jpg" alt="" class="w-100 h-100">
-                    </div>
-                    <div class="swiper-slide" style="width: 650px !important;overflow: hidden;"> 
-                      <img src="assets/images/slide-3.png" alt="" class="w-100 h-100">
-                    </div>
-                  </div>
-                  <div class="swiper-button-next">
-                    <svg width="20" height="18" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <g>
-                          <path d="M1 8H22.6228" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                          <path d="M15.6726 1L23.4037 8L15.6726 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </g>
-                  </svg>
-                  </div>
-                  <div class="swiper-button-prev">
-                    <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
-                      <g>
-                          <path d="M1 8H22.6228" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                          <path d="M15.6726 1L23.4037 8L15.6726 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                      </g>
-                  </svg>
-                  </div>
                 </div>
-              </div>
+            </div>
           </section>
-          <section id="fifth-section" class="position-relative video-container" style="height: 100vh;background-color: #00000070">
-            <div class="flair flair--3">VER &nbsp;RECORRIDO</div>
+        
+          <section id="fifth-section" class="position-relative video-container" style="height: 100vh; cursor: none !important;">
+            <div class="flair flair--3">
+              <div class="me-3">
+                <span>Ver &nbsp;Recorrido</span>
+              </div>
+              <svg data-v-7bf60a50="" width="11" height="11" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+            </div>
             <video class="background-video" autoplay loop muted>
               <source src="./assets/videos/video-home.mp4" type="video/mp4">
               Tu navegador no soporta videos.
             </video>
           </section>
-       
-          <section>
-            
+          <section id="sixth-section">
             <div class="container-pins mx-0">
-              
               <div class="stackingcards">
+                <div class="stackingcard first-card bg-white" >
+                  <div class="row h-100">
+                    <div class="col-lg-6 bg-white d-flex align-items-center px-5">
+                      <h2>Acabados</h2>
+                    </div>
+                    <div class="col-lg-6 p-5 bg-white">
+                      <div class="fs-1-2rem" style="color: #2f2d2d;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem adipisci, quas ab nam laboriosam modi assumenda repellendus quod ullam optio placeat fugiat sed amet?</div>
+                    </div>
+                  </div>
+                </div>
+                
                 <div class="stackingcard">
                   <div class="row h-100">
-                    <div class="col-lg-12">
-                      <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem adipisci, quas ab nam laboriosam modi assumenda repellendus quod ullam optio placeat fugiat sed amet?</span>
+                    <div class="col-lg-6" style="background-image: url('assets/images/material-1.webp');background-position: left;
+      background-size: cover;">
+  
+                    </div>
+                    <div class="col-lg-6 p-5 bg-white">
+                      <div class="mb-2 fs-1-2rem" style="color: #2f2d2d;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem adipisci, quas ab nam laboriosam modi assumenda repellendus quod ullam optio placeat fugiat sed amet?</div>
+                      <div class="fs-1-2rem" style="color: #2f2d2d;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis iste accusantium impedit eius animi, possimus quaerat odit, ad soluta ullam, quo ex nostrum at! Placeat inventore atque neque et veritatis, illo culpa ut id eveniet.</div>
                     </div>
                   </div>
                 </div>
                 <div class="stackingcard">
                   <div class="row h-100">
-                    <div class="col-lg-6" style="background-image: url('assets/images/material-1.jpg');background-position: center;
+                    <div class="col-lg-6" style="background-image: url('assets/images/material-3.webp');background-position: left;
       background-size: cover;">
   
                     </div>
-                    <div class="col-lg-6 p-5">
-                      <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem adipisci, quas ab nam laboriosam modi assumenda repellendus quod ullam optio placeat fugiat sed amet?</span>
+                    <div class="col-lg-6 p-5 bg-white">
+                      <div class="mb-2 fs-1-2rem" style="color: #2f2d2d;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem adipisci, quas ab nam laboriosam modi assumenda repellendus quod ullam optio placeat fugiat sed amet?</div>
+                      <div class="fs-1-2rem" style="color: #2f2d2d;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis iste accusantium impedit eius animi, possimus quaerat odit, ad soluta ullam, quo ex nostrum at! Placeat inventore atque neque et veritatis, illo culpa ut id eveniet.</div>
                     </div>
                   </div>
                 </div>
                 <div class="stackingcard" >
                   <div class="row h-100">
-                    <div class="col-lg-6" style="background-image: url('assets/images/material-2.jpg');background-position: center;
+                    <div class="col-lg-6" style="background-image: url('assets/images/material-2.webp');background-position: left;
       background-size: cover;">
   
                     </div>
-                    <div class="col-lg-6 p-5">
-                      <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem adipisci, quas ab nam laboriosam modi assumenda repellendus quod ullam optio placeat fugiat sed amet?</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="stackingcard">
-                  <div class="row h-100">
-                    <div class="col-lg-6" style="background-image: url('assets/images/material-3.jpg');background-position: center;
-      background-size: cover;">
-  
-                    </div>
-                    <div class="col-lg-6 p-5">
-                      <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem adipisci, quas ab nam laboriosam modi assumenda repellendus quod ullam optio placeat fugiat sed amet?</span>
+                    <div class="col-lg-6 p-5 bg-white">
+                      <div class="mb-2 fs-1-2rem" style="color: #2f2d2d;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem adipisci, quas ab nam laboriosam modi assumenda repellendus quod ullam optio placeat fugiat sed amet?</div>
+                      <div class="fs-1-2rem" style="color: #2f2d2d;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis iste accusantium impedit eius animi, possimus quaerat odit, ad soluta ullam, quo ex nostrum at! Placeat inventore atque neque et veritatis, illo culpa ut id eveniet.</div>
                     </div>
                   </div>
                 </div>
@@ -369,27 +411,667 @@
               <div class="end-element"></div>
             </div>
           </section>
-
-          <section style="background-image: url(assets/images/main.webp);height: 100vh;">
-            <div class="h-100 w-100" style="background-color: #00000070;">
-              <div class="px-5 py-5 h-100">
-                <div class="d-flex justify-content-between">
-                  <img src="assets/images/logo-b.webp" alt="" style="height: 50px;">
-                    <div class="btn-menu-container">
-                        <div class="btn-menu" onclick="animateBars()">
-                            <div class="line line-1"></div>
-                            <div class="line line-2"></div>
-                            <div class="line line-3"></div>
-                        </div>
+          <section id="seventh-section" style="height: 100vh;background-color: #fff;">
+            <div class="wrapper">
+              <div class="menu">
+                <div class="bg-white d-flex align-items-center"  style="padding: 8px 15px;
+                border-bottom: 1px solid #ccc;border-right: 1px solid #ccc !important;">
+                  <div class="menu-item px-5">
+                    Áreas
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>88 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper">
+                    <div class="menu-content">
+                      <div class="swiper-typologies-pagination"></div>
                     </div>
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>93 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper">
+                    <div class="menu-content">
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>101 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper">
+                    <div class="menu-content">
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>102 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper">
+                    <div class="menu-content">
+                      <ul class="menu-departaments">
+                        <li class="menu-departaments-item">203</li>
+                        <li class="menu-departaments-item">306</li>
+                        <li class="menu-departaments-item">1305</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>104 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper">
+                    <div class="menu-content">
+                      <ul class="menu-departaments mb-0">
+                        <li class="menu-departaments-item">203</li>
+                        <li class="menu-departaments-item">306</li>
+                        <li class="menu-departaments-item">1305</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>117 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper">
+                    <div class="menu-content">
+                      <ul class="menu-departaments">
+                        <li class="menu-departaments-item">203</li>
+                        <li class="menu-departaments-item">306</li>
+                        <li class="menu-departaments-item">1305</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>136 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper">
+                    <div class="menu-content">
+                      <ul class="menu-departaments">
+                        <li class="menu-departaments-item">203</li>
+                        <li class="menu-departaments-item">306</li>
+                        <li class="menu-departaments-item">1305</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>154 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper">
+                    <div class="menu-content">
+                      <ul class="menu-departaments">
+                        <li class="menu-departaments-item">203</li>
+                        <li class="menu-departaments-item">306</li>
+                        <li class="menu-departaments-item">1305</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="menu-item-wrapper">
+                  <div class="menu-item">
+                    <span>155 m2</span> 
+                    <span>+</span>
+                  </div>
+                  <div class="menu-content-wrapper-last">
+                    <div class="menu-content">
+                      <ul class="menu-departaments">
+                        <li class="menu-departaments-item">203</li>
+                        <li class="menu-departaments-item">306</li>
+                        <li class="menu-departaments-item">1305</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row h-100 px-5">
+                <div class="col-lg-8 h-100 d-flex align-items-center position-relative">
+                  <div class="swiper-button-prev swiper-button-prev-typologies" style="height: 50px;width: 50px;left: 0 !important;">
+                    <svg width="25" height="16" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+                        <g>
+                            <path d="M1 8H22.6228" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M15.6726 1L23.4037 8L15.6726 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg>
+                  </div>
+                  
+                  <div class="swiper-typologies mx-5">
+                    <div class="swiper-wrapper">
+                      <!-- Slide 1 -->
+                      <div class="swiper-slide swiper-slide-typologies" data-info='{"titulo":"88 m2 - Flat","estado":"Disponible","departamento":"203","dormitorios":"02","vista":"Externa","area":"88 m²"}'>
+                        <img src="./assets/images/tp.jpg" class="w-100" alt="Plano 1">
+                      </div>
+                      <!-- Slide 2 -->
+                      <div class="swiper-slide swiper-slide-typologies" data-info='{"titulo":"88 m2 - Flat","estado":"Disponible","departamento":"306","dormitorios":"03","vista":"Interna","area":"88 m²"}'>
+                        <img src="./assets/images/tp.jpg" class="w-100" alt="Plano 2">
+                      </div>
+                      <!-- Slide 3 -->
+                      <div class=" swiper-slide swiper-slide-typologies" data-info='{"titulo":"88 m2 - Flat","estado":"Vendido","departamento":"1305","dormitorios":"03","vista":"Externa","area":"88 m²"}'>
+                        <img src="./assets/images/tp.jpg" class="w-100" alt="Plano 3">
+                      </div>
+                    </div>
+                  
+                  </div>
+                  <!-- Flechas de navegación -->
+                  
+                  <div class="swiper-button-next swiper-button-next-typologies" style="height: 50px;width: 50px;right: 0 !important;">
+                    <svg width="20" height="18" viewBox="0 0 25 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path d="M1 8H22.6228" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M15.6726 1L23.4037 8L15.6726 15" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg>
+                  </div>
+
+                </div>
+                <div class="col-lg-4 h-100 d-flex align-items-center" style="padding-left: 3rem;">
+                  <div class="content">
+                    <div class="mb-5">
+                      <span id="titulo" class="ff-ppmori fs-2-5rem" style="font-weight: 600;">88 m2 - Flat</span>
+                      <p id="estado" class="ff-ppmori">Disponible</p>
+                    </div>
+                    <table class="mb-5">
+                      <tr>
+                        <td class="pb-2">
+                          <span class="text-muted fs-1-1rem ff-ppmori">Departamento</span>
+                        </td>
+                        <td class="pb-2" style="padding-left: 3rem;">
+                          <span id="departamento" class="fs-1-1rem ff-ppmori">202</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pb-2">
+                          <span class="text-muted fs-1-1rem ff-ppmori">Dormitorios</span>
+                        </td>
+                        <td class="pb-2" style="padding-left: 3rem;">
+                          <span id="dormitorios" class="fs-1-1rem ff-ppmori">02</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pb-2">
+                          <span class="text-muted fs-1-1rem">Vista</span>
+                        </td>
+                        <td class="pb-2" style="padding-left: 3rem;">
+                          <span id="vista" class="fs-1-1rem">Externa</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="pb-2">
+                          <span class="text-muted fs-1-1rem">Área techada</span>
+                        </td>
+                        <td class="pb-2" style="padding-left: 3rem;">
+                          <span id="area" class="fs-1-1rem">93.22 m²</span>
+                        </td>
+                      </tr>
+                    </table>
+
+                    <div class="d-flex flex-column">
+                      <div class="mt-auto d-flex align-items-center mb-4" >
+                        <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 350px;">
+                          <span>
+                            Consultar con asesor
+                          </span>
+                          <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                          <div class="border-link">
+                            <div class="border-fill"></div>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="mt-auto d-flex align-items-center" >
+                        <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 350px;">
+                          <span>
+                            Descargar plano
+                          </span>
+                          <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                          <div class="border-link">
+                            <div class="border-fill"></div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </section>
+          <section id="eighth-section" style="height: 100vh;background-color: #fff;">
+              <div class="row h-100" style="background-color: #ededed;">
+                <div class="col-lg-3 p-5 d-flex justify-content-between flex-column">
+                  <div class="">
+                    <h4 class="text-dark">Alrededor</h4>
+                  </div>
+                  <div class="">
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          Ir con Maps
+                        </span>
+                        <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4">
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          Ir con Waze
+                        </span>
+                        <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          1. La cristina
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          2. La principal
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          3. La Dosis Dulce
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          4. Pasteleria San Antonio
+                        </span>
+                       
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          5. Astrid y Gatón
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          6. Ripley
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          7. Saga Falabella
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          8. Plaza Vea
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          9. Parque Combate de Abtao
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          10. Parque Tarapaca
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          11. Bosque el Olivar
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="mt-auto d-flex align-items-center mb-4" >
+                      <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                        <span>
+                          12. Centro Financiero
+                        </span>
+                        <div class="border-link">
+                          <div class="border-fill"></div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                    
+
+                </div>
+                <div class="col-lg-9">
+                  <div class="map-container" style="background-image: url('assets/images/ewde2.png');background-position: center;background-size: cover">
+                  </div>
+                </div>
+              </div>
+          </section>
+          <section id="nine-section" style="height: 100vh;background-color: #fff6ed;">
+            <div class="d-flex flex-column h-100">
+              <div class="d-flex w-100" style="height: 40%;">
+                  <div class="d-flex flex-column justify-content-between w-50 border p-5">
+                      <div class="text-start w-100">
+                        <h4 class="text-dark">Alrededor</h4>
+                      </div>
+                      <div class="text-end w-100">
+                        <h1 class="fs-2-5rem ff-ppmori">
+                          Reusche <br>
+                          Reyna
+                        </h1>
+                      </div>
+                  </div>
+                  <div class="d-flex flex-column justify-content-end w-50 border p-5">
+                    <div class="text-end w-100">
+                      <h1 class="fs-2-5rem ff-ppmori">
+                        Reusche <br>
+                        Reyna
+                      </h1>
+                    </div>
+                  </div>
+              </div>
+              <div class="d-flex w-100" style="height: 60%;">
+                <div class="d-flex flex-column justify-content-between w-50 border p-5">
+                  <div class="row">
+                    <div class="col-xl-5 col-lg-3">
+                      <img src="./assets/images/screen-1.png" class="w-100">
+                    </div>
+                    <div class="col-xl-7 col-lg-9 d-flex flex-column justify-content-between">
+                      <div class="fs-1-2rem ff-ppmori">
+                        Trabajamos en colaboración con
+                        el Atelier Reusche Reyna,
+                        un reconocido estudio con más de
+                        100 proyectos que combinan
+                        diseño creativo, funcionalidad
+                        y respeto al entorno urbano
+                      </div>
+                      <div class="mt-auto d-flex align-items-center" >
+                        <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                          <span class="fs-1-3rem ff-ppmori">
+                            Ver más
+                          </span>
+                          <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                          <div class="border-link">
+                            <div class="border-fill"></div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column justify-content-between w-50 border p-5">
+                  <div class="row">
+                    <div class="col-xl-5 col-lg-3">
+                      <img src="./assets/images/screen-2.png" class="w-100">
+                    </div>
+                    <div class="col-xl-7 col-lg-9 d-flex flex-column justify-content-between">
+                      <div class="fs-1-2rem ff-ppmori">
+                        Trabajamos en colaboración con
+                        el Atelier Reusche Reyna,
+                        un reconocido estudio con más de
+                        100 proyectos que combinan
+                        diseño creativo, funcionalidad
+                        y respeto al entorno urbano
+                      </div>
+                      <div class="mt-auto d-flex align-items-center" >
+                        <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                          <span class="fs-1-3rem ff-ppmori">
+                            Ver más
+                          </span>
+                          <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                          <div class="border-link">
+                            <div class="border-fill"></div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
             </div>
             </div>
           </section>
-          
+          <section id="tenth-section" style="height: 100vh">
+            <div class="row h-100">
+              <div class="col-lg-6 p-5 d-flex flex-column justify-content-between" style="background-color: #ededed;">
+                <div>
+                  <h1 class="ff-ppmori mb-5 fs-2-5rem">Somos Blu</h1>
+                </div>
+
+                <div class="d-flex flex-column gap-4">
+                  <h1 class="ff-ppmori fs-2rem">
+                    Nuestro compromiso es <br>
+                    con la sociedad y contigo.
+                  </h1>
+
+                  <div class="border-bottom" style="border-color: #cecece !important;"></div>
+
+                  <div class="d-flex flex-column gap-1 mb-4">
+                    <p class="ff-ppmori fs-1-2rem">
+                      Desde 2019, nos enfocamos en diseñar espacios que se adapten a ti y contribuyan al entorno.
+                    </p>
+                    <p class="ff-ppmori fs-1-2rem">
+                      Conformamos un equipo compacto y comprometido a lograr grandes resultados.
+                      A la fecha, hemos entregado dos proyectos y actualmente contamos con Soul,
+                      nuestro proyecto en pre-venta
+                    </p>
+                  </div>
+
+                  <a href="" class="fs-1-1rem text-dark d-flex justify-content-between align-items-center position-relative border-button-link" style="text-decoration: none !important;width: 100%;">
+                    <span class="fs-1-3rem ff-ppmori text-uppercase">
+                      ¡Conocénos!
+                    </span>
+                    <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+                    <div class="border-link">
+                      <div class="border-fill"></div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class=" d-flex align-items-center" >
+                  
+                </div>
+              </div>
+              <div class="col-lg-6 p-5 bg-white d-flex flex-column justify-content-between">
+                <h1 class="ff-ppmori fs-2-5rem">
+                  Déjanos tus datos <br>
+                  y nos contactaremos contigo
+                </h1>
+
+                <form action="">
+                  <div class="row">
+                    <div class="col-12 mb-5">
+                      <select name="" class="form-select">
+                        <option value="" selected disaled>Elige tu tipo de departamento</option>
+                        <option value="">Hola</option>
+                        <option value="">Como</option>
+                        <option value="">Estas</option>
+                      </select>
+                    </div>
+                    <div class="col-6 mb-5">
+                      <input type="text" class="form-control" placeholder="Nombres">
+                    </div>
+                    <div class="col-6 mb-5">
+                      <input type="text" class="form-control" placeholder="Apellidos">
+                    </div>
+                    <div class="col-6 mb-5">
+                      <input type="email" class="form-control" placeholder="Correo">
+                    </div>
+                    <div class="col-6 mb-5">
+                      <input type="number" class="form-control" placeholder="Telefono">
+                    </div>
+                    <div class="col-6 mb-5">
+                      <select name="" class="form-select">
+                        <option value="" selected disaled>Cuándo comprarías tu depa</option>
+                        <option value="">Hola</option>
+                        <option value="">Como</option>
+                        <option value="">Estas</option>
+                      </select>
+                    </div>
+                    <div class="col-6 mb-5">
+                      <select name="" class="form-select">
+                        <option value="" selected disaled>Residencia actual</option>
+                        <option value="">Hola</option>
+                        <option value="">Como</option>
+                        <option value="">Estas</option>
+                      </select>
+                    </div>
+                    <div class="col-12 mb-5">
+                      <textarea name="" class="form-control" placeholder="Mensaje"></textarea>
+                    </div>
+                    <div class="col-12">
+                      <a href="" class="btn btn-dark btn-form-hover" style="font-size: 1rem;">
+                        <span>ENVIAR</span>
+                      </a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </section>
+          <div class="footer-spacer"></div>
         </div>
     </div>
-    
+    <footer id="sticky-footer" class="footer p-5" style="background-image: url(./assets/images/fondo.jpg);background-position: left;background-size: cover;">
+      <div class="d-flex justify-content-between mb-5">
+        <div class="d-flex flex-column justify-content-between">
+          <div class="d-flex flex-column">
+            <span class="text-white fs-1-2rem">Info@inmobiliariablu</span>
+            <span class="text-white fs-1-2rem">916 742 7421</span>
+          </div>
+
+          <span class="text-white fs-1-2rem">Villareal 385 - 395, San Isidro</span>
+        </div>
+        <div class="d-flex">
+          <ul class="list-inline list-footer me-5">
+            <li>
+              <a href="" class="text-white fs-1-2rem">Proyecto</a>
+            </li>
+            <li>
+              <a href="" class="text-white fs-1-2rem">Ubicación</a>
+            </li>
+            <li>
+              <a href="" class="text-white fs-1-2rem">360</a>
+            </li>
+            <li>
+              <a href="" class="text-white fs-1-2rem">Aliados</a>
+            </li>
+            <li>
+              <a href="" class="text-white fs-1-2rem">Planos</a>
+            </li>
+          </ul>
+
+          <ul class="list-inline list-footer me-5">
+            <li>
+              <a href="" class="text-white fs-1-2rem d-flex justify-content-betnween align-items-center">
+                <span class="me-3">Instagram</span>
+                <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="" class="text-white fs-1-2rem d-flex justify-content-betnween align-items-center">
+                <span class="me-3">Facebook</span>
+                <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="" class="text-white fs-1-2rem d-flex justify-content-betnween align-items-center">
+                <span class="me-3">Youtube</span>
+                <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+              </a>
+            </li>
+          </ul>
+
+          <div class="d-flex flex-column">
+            <span class="text-white fs-1-2rem ff-ppmori d-flex flex-column align-items-center">
+              <svg data-v-7bf60a50="" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon" style="    transform: rotate(-45deg);width: 20px;height: 20px;"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9966 8.5308C11.9966 8.84819 11.7334 9.11139 11.416 9.11139C11.0986 9.11139 10.8354 8.84819 10.8354 8.5308V1.98239L0.989067 11.8287C0.872949 11.9448 0.725867 11.999 0.578784 11.999C0.431702 11.999 0.284619 11.9448 0.168502 11.8287C-0.0559931 11.6042 -0.0559931 11.2326 0.168502 11.0082L10.0155 1.16118H3.46578C3.14839 1.16118 2.88519 0.897979 2.88519 0.58059C2.88519 0.263201 3.14839 0 3.46578 0H11.416C11.5014 0 11.5828 0.0190504 11.6563 0.0530812C11.7183 0.0808598 11.7763 0.119992 11.8267 0.170477C11.8841 0.227843 11.9268 0.294813 11.9549 0.366478C11.9817 0.432929 11.9966 0.505232 11.9966 0.58059V8.5308Z" fill="currentColor"></path></svg>
+              <div class="mt-3">
+                Back to top
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <img src="assets/images/logo-footer.png" class="w-100" style="" alt="">
+        </div>
+        <div class="col-lg-4 mt-auto">
+          <span class="text-white fs-1rem">Un proyecto de Blu.</span>
+        </div>
+      </div>
+    </footer>
+   
   
     <div class="d-flex align-items-center position-fixed social-container">
       <a href="" class="btn btn-dark btn-circle-hover">
@@ -403,11 +1085,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    <script src="./assets/js/DrawSVGPlugin3.min.js"></script>
     <script src="https://assets.codepen.io/16327/ScrollSmoother.min.js"></script>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/photoswipe.umd.min.js" defer></script>
+    <script src="./assets/js/photoswipe-lightbox.umd.min.js" defer></script>
     <script src="./assets/js/app.js"></script>
-    <script src="./assets/js/counter.js"></script>
+    <script src="./assets/js/menu.gsap.js"></script>
+    <script src="./assets/js/texts.gsap.js"></script>
+    <script src="./assets/js/counter.gsap.js"></script>
+    <script src="./assets/js/tipology.gsap.js"></script>
+    <script src="./assets/js/photoswipe.js"></script>
+    <script src="./assets/js/hamburguer.gsap.js"></script>
+
 </body>
 </html>

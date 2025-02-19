@@ -1,10 +1,19 @@
 @font-face {
+    font-family: "BasisGrotesqueArabicPro";
+    src: url(./../fonts/BasisGrotesqueArabicPro-Regular.ttf)
+}
+
+@font-face {
     font-family: "PPMori";
     src: url(./../fonts/PPMori-Regular.otf)
 }
 
 .ff-ppmori{
     font-family: "PPMori";
+}
+
+.ff-basis{
+    font-family: "BasisGrotesqueArabicPro";
 }
 
 .p-7{
@@ -45,7 +54,7 @@ body {
 .btn-menu .line {
     width: 100%;
     height: 3px;
-    background-color: #000;
+    background-color: white;
     transform-origin: center; /* Asegura que la rotación sea desde el centro */
     transition: all 0.3s ease;
 }
@@ -53,8 +62,6 @@ body {
 .btn-menu-container {
     width: 80px;
     height: 70px;
-    background: white;
-    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +86,7 @@ body {
     z-index: 1000;
 }
 
-.btn-circle-hover{
+.btn-circle-hover, .btn-form-hover{
     position: relative;
     height: max-content;
     font-size: 1.2rem;
@@ -110,9 +117,10 @@ body {
 
 /* 🔹 Borde derecho e izquierdo (ya los tienes definidos) */
 
-.title{
+.title {
     font-family: "PPMori";
-    font-size: 4rem;
+    font-size: clamp(1.45rem, 5vw, 4rem); /* Ajuste gradual entre 2rem y 4rem */
+    white-space: nowrap; /* Evita saltos de línea */
 }
 
 #table-cicle td.first-column {
@@ -193,7 +201,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 150% !important;
+    height: 120% !important;
     object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
     background-size: cover; 
     background-position: center;
@@ -334,7 +342,7 @@ html, body {
     top: 100%;
     left: 0;
     width: 0;  /* Inicialmente 0 para animación */
-    height: 2px;
+    height: 1px;
     background-color: #000 !important;
  /*    transform: scaleY(0.75);  */
 }
@@ -344,7 +352,7 @@ html, body {
     top: 100%;
     right: 0;  /* 🔹 Inicia desde la derecha */
     width: 0;  /* 🔹 Comienza sin ancho */
-    height: 2px;
+    height: 0.5px;
     background-color: #000 !important;
     /* transform: scaleY(0.75); */
 }
@@ -352,7 +360,7 @@ html, body {
     position: absolute;
     top: 100%;  
     right: 0;
-    width: 2px;
+    width: 1px;
     height: 0;  /* Inicialmente 0 para animación */
     background-color: #000 !important;
 }
@@ -361,7 +369,7 @@ html, body {
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 2px;
+    width: 1px;
     height: 0;
     background-color: #000 !important;
 }
@@ -373,7 +381,7 @@ html, body {
     top: 100%;
     left: 0;
     width: 0;  /* Inicialmente 0 para animación */
-    height: 2px;
+    height: 0.5px;
     background-color: #000 !important;
    /*  transform: scaleY(0.75);  */
 }
@@ -383,7 +391,7 @@ html, body {
     top: 100%;
     right: 0;  /* 🔹 Inicia desde la derecha */
     width: 0;  /* 🔹 Comienza sin ancho */
-    height: 2px;
+    height: 1px;
     background-color: #000 !important;
     /* transform: scaleY(0.75); */
 }
@@ -391,7 +399,7 @@ html, body {
     position: absolute;
     top: 100%;  
     right: 100%;
-    width: 2px;
+    width: 0.5px;
     height: 0;  /* Inicialmente 0 para animación */
     background-color: #000 !important;
 }
@@ -400,7 +408,7 @@ html, body {
     position: absolute;
     bottom: 0;
     right: 100%;
-    width: 2px;
+    width: 0.5px;
     height: 0;
     background-color: #000 !important;
 }
@@ -410,7 +418,7 @@ html, body {
     top: 100%;
     left: 50%; 
     width: 0; 
-    height: 2px;
+    height: 1px;
     background-color: #000 !important;
     transform: translateX(-50%); 
   
@@ -428,6 +436,21 @@ html, body {
     font-size: 3.5rem;
 }
 
+.fs-4rem{
+    font-size: 4rem;
+}
+
+.fs-2-5rem{
+    font-size: 2.5rem;
+}
+
+.fs-1-8rem{
+    font-size: 1.8rem;
+}
+
+.fs-2rem{
+    font-size: 2rem;
+}
 
 .fs-1-3rem{
     font-size: 1.3rem;
@@ -435,6 +458,10 @@ html, body {
 
 .fs-1-2rem{
     font-size: 1.2rem;
+}
+
+.fs-1-1rem{
+    font-size: 1.1rem;
 }
 
 .border-link{
@@ -474,7 +501,7 @@ html, body {
 
 
 
-.swiper-button-next,.swiper-button-prev{
+.swiper-button-next-gallery,.swiper-button-prev-gallery,.swiper-button-next-typologies,.swiper-button-prev-typologies{
     align-items: center;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -490,19 +517,19 @@ html, body {
     width: 75px;   
 }
 
-.swiper-button-next{
+.swiper-button-next-gallery{
     right: 50px !important;
 }
 
-.swiper-button-prev{
+.swiper-button-prev-gallery{
     left: 50px !important;
 }
 
-.swiper-button-next::after,.swiper-button-prev::after{
+.swiper-button-next-gallery::after,.swiper-button-prev-gallery::after,.swiper-button-next-typologies::after,.swiper-button-prev-typologies::after{
     content: '';
 }
 
-.swiper-button-next svg, .swiper-button-prev svg {
+.swiper-button-next-gallery svg, .swiper-button-prev-gallery svg, .swiper-button-next-typologies svg, .swiper-button-prev-typologies svg {
     width: 20px;
     height: 18px;
 }
@@ -512,20 +539,27 @@ html, body {
 }
 
 .flair {
-    width: 100px;
-    height: 100px;
     position: fixed;
     top: 0;
     left: 0;
     pointer-events: none;
     transform-origin: center;
+
 }
 
 .flair--3 {
     color: white !important;
-    font-size: 2.3rem;
-    font-family: "PPMori";
+    font-size: 0.8rem;
+    font-family: "BasisGrotesqueArabicPro";
     white-space: nowrap;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: calc(50/1440*100vw);
+    background: #ffffff40 !important;
+    padding: 8px 15px !important;
+    letter-spacing: 0.7px;
 }
 
 
@@ -552,27 +586,260 @@ html, body {
 .container-pins {
    overflow: hidden;
     width: 100%;
-  }
-  
-  .stackingcards {
+}
+
+.stackingcards {
     color: white;
     position: relative;
-    
-  
+
+
     .stackingcard {
-      border: 1px solid #ccc;
-      background-color: #cacaca;
-      color: #020202;
-      height: 500px;
-      width: 100%;
-      transform-origin: top center;
-      box-sizing: border-box;
+        border: 1px solid #ccc;
+        background-color: #cacaca;
+        color: #020202;
+        height: 500px;
+        width: 100%;
+        transform-origin: top center;
+        box-sizing: border-box;
     }
-  }
-  
-  .end-element {
+}
+
+.end-element {
     width: 100%;
     height: 1px;
     border-top: 1px solid red;
-  }
+}
 
+.wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex: 1;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-item-wrapper { 
+    position: relative; 
+    flex: 1;
+    background-color: white;
+    padding: 15px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* new */
+.menu-content {
+    background-color: silver;
+}
+
+.menu-content-wrapper {
+    overflow: hidden;
+    position: absolute;
+    top: calc(100%);
+    left: 0;
+    pointer-events: 'none';
+    z-index: 0;
+}
+
+.menu-item-wrapper.active-item .menu-content-wrapper{
+    z-index: 1;
+}
+
+.menu-content-wrapper-last {
+    overflow: hidden;
+    position: absolute;
+    top: calc(100%);
+    right: 0;
+    pointer-events: 'none';
+    z-index: 1;
+}
+
+.menu-departaments {
+    top: 100%;
+    left: 0;
+    background: #f8f8f8;
+    list-style: none;
+    display: flex;
+    padding-left: 0px;
+    padding: 8px 15px;
+}
+
+.menu-departaments-item{
+    font-family: "PPMori";
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+.active-item {
+    background-color: #000; /* Color de fondo cuando está activo */
+    transition: background-color 0.1s ease-in-out;
+
+}
+
+.active-item .menu-item{
+    color: white;
+}
+
+.swiper-typologies{
+    overflow: hidden;
+}
+
+.swiper-typologies {
+    position: relative;
+}
+
+.swiper-typologies-pagination{
+    display: flex;
+    padding: 8px 15px;
+    background-color: #f8f8f8;
+}
+
+.swiper-pagination-bullet {
+    width: auto;
+    height: auto;
+    background: transparent;
+    margin: 0px !important;
+    padding: 10px 20px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;  /* Ocupa todo el ancho disponible */
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    overflow: hidden;
+    height: 100%;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.form-select:focus,.form-control:focus{
+    box-shadow: none !important;
+}
+
+.form-select{
+    color: #8d8d8d !important;
+    border: none !important;
+    border-bottom: 1px solid #c4c4c4 !important;
+    border-radius: 0px !important;
+    font-size: 1.1rem !important;
+    cursor: pointer;
+    font-family: "PPMori" !important;
+}
+
+.form-select:hover, .form-select:focus{
+    color: #000 !important;
+    border-color:#000 !important;
+}
+
+.form-control{
+    color: #8d8d8d !important;
+    border: none !important;
+    border-bottom: 1px solid #c4c4c4 !important;
+    border-radius: 0px !important;
+    font-size: 1.1rem !important;
+    cursor: pointer;
+    transition: color 1s ease-in;
+    font-family: "PPMori" !important;
+}
+
+.form-control:hover::placeholder, .form-control:focus::placeholder{
+    color: #000 !important;
+}
+
+.form-control:hover{
+    border-color:#000 !important;
+}
+
+.form-control::placeholder{
+    color: #8d8d8d !important;
+}
+
+footer{
+    background: #373737;
+    height: 70dvh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+
+#smooth-wrapper {
+    overflow: hidden;
+}
+
+#smooth-content {
+    padding-bottom: 70dvh; /* Para que no tape el footer */
+}
+
+.list-footer li a{
+    text-decoration: none;
+    font-family: "PPMori";
+}
+
+.list-footer li{
+    margin-bottom: 10px;
+}
+
+.stackingcard {
+    min-height: 50vh; /* O ajusta según necesites */
+}
+
+.info-title-social{
+    padding-bottom: 0.5rem;
+}
+
+.info-title-social:hover{
+    text-decoration: underline;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+
+
+
+.text-container {
+    white-space: nowrap; /* Evita saltos de línea */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    overflow: hidden; /* Evita desbordes si es necesario */
+  }
+  
+  .text-responsive {
+    font-size: clamp(14px, 3vw, 24px); /* Ajusta entre 14px y 24px según el tamaño de la pantalla */
+    color: white;
+    margin-bottom: 5px;
+  }
+  
+  .text-number {
+    font-size: clamp(16px, 4vw, 30px); /* Ajusta entre 16px y 30px para que no haya saltos de línea */
+    font-weight: bold;
+    display: inline-block;
+  }
+  
+  .text-unit {
+    font-size: clamp(12px, 3vw, 22px); /* Escala el tamaño de "m²" dinámicamente */
+    vertical-align: middle;
+  }
+  

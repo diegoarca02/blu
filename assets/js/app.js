@@ -1,6 +1,14 @@
 // 📌 1. REGISTRO DE PLUGINS GSAP
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+// 📌 8. SMOOTH SCROLL
+let smoother = ScrollSmoother.create({
+  wrapper: "#smooth-wrapper",
+  content: "#smooth-content",
+  smooth: 2,
+  effects: true
+});
+
 // 📌 2. VARIABLES GLOBALES Y CONFIGURACIÓN
 const easing = "power2.inOut";
 const bgColor = "#000";
@@ -39,34 +47,51 @@ menuTl.to(".navbar-menu", {
 });
 
 // 📌 4. EVENTO DEL BOTÓN DE MENÚ
-function animateBars() {
-  const tlBars = gsap.timeline({ defaults: { duration: 0.3, ease: easing } });
+console.clear();
+gsap.registerPlugin(DrawSVGPlugin);
 
-  if (!isMenuOpen) {
-    tlBars.to(".line-1", { y: 10, rotate: 45 })
-          .to(".line-2", { opacity: 0 }, "<")
-          .to(".line-3", { y: -15.5, rotate: -45 }, "<");
+const tlHmrb = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
-    menuTl.play();      
-    borderTl.play(0);   
+gsap.set("#theBurger", { autoAlpha: 1 });
+gsap.set(".buns", { drawSVG: "0% 30%" });
+gsap.set(".letters", { drawSVG: "53.5% 100%", x: -155 });
+
+tlHmrb.to(".patty", { duration: 0.35, drawSVG: "50% 50%" }, 0)
+     .to(".patty", { duration: 0.1, opacity: 0, ease: "none" }, 0.25)
+     .to(".buns", { duration: 0.85, drawSVG: "69% 96.5%" }, 0)
+     .to(".letters", { duration: 0.85, drawSVG: "0% 53%", x: 0 }, 0)
+     .reversed(true);
+
+// Timelines del menú y bordes
+
+function animateTheBurger() {
+  isMenuOpen = !isMenuOpen; // Alternar estado del menú
+
+  tlHmrb.reversed(!tlHmrb.reversed()); // Alternar la animación de la hamburguesa
+
+  if (isMenuOpen) {
+    // Bloquea el scroll
+    menuTl.play();
+    borderTl.play(0);
+    gsap.to("#burger", { duration: 0.3, stroke: "#000000" }); // Cambia a negro inmediatamente
   } else {
-    tlBars.to(".line-1", { y: 0, rotate: 0 })
-          .to(".line-2", { opacity: 1 }, "<")
-          .to(".line-3", { y: 0, rotate: 0 }, "<");
-
-    menuTl.reverse();   
+   // Bloquea el scroll
+    menuTl.reverse();
     borderCloseTl.play(0);
+    gsap.to("#burger", { duration: 0.3, stroke: "#ffffff", delay: 0.5 }); // Retraso de 0.5s al volver a blanco
   }
-
-  isMenuOpen = !isMenuOpen;
 }
+
+
+
 
 // 📌 5. AJUSTE DINÁMICO DE ALTURA
 function adjustHeight() {
   const viewportHeight = window.innerHeight;
   const trHeight = window.innerHeight / 4;
-  const trHeightTwo = window.innerHeight / 2;
   const tdWidth = window.innerWidth / 3;
+  const tablesSecondSection = document.getElementById("table-second-section").offsetHeight / 2;
+
   console.log(tdWidth);
   
   document.querySelectorAll('.full-height').forEach(element => {
@@ -79,7 +104,7 @@ function adjustHeight() {
     element.style.width = `${tdWidth}px`;
   });
   document.querySelectorAll('.td-height-two').forEach(element => {
-    element.style.height = `${trHeightTwo}px`;
+    element.style.height = `${tablesSecondSection}px`;
   });
 }
 window.addEventListener('resize', adjustHeight);
@@ -156,13 +181,21 @@ document.querySelectorAll('.progress-bar').forEach(bar => {
   );
 });
 
-// 📌 8. SMOOTH SCROLL
-ScrollSmoother.create({
-  wrapper: "#smooth-wrapper",
-  content: "#smooth-content",
-  smooth: 2,
-  effects: true
+/* gsap.registerPlugin(ScrollSmoother, ScrollTrigger); */
+
+
+
+ // Footer sticky y efecto de desbloqueo
+ gsap.to("#sticky-footer", {
+  scrollTrigger: {
+    trigger: "#smooth-content",
+    start: "bottom bottom",
+
+    scrub: true,
+    pin: true,
+  }
 });
+
 
 // 📌 9. EFECTO PARALLAX
 gsap.utils.toArray('.section').forEach((section, i) => {
@@ -170,7 +203,6 @@ gsap.utils.toArray('.section').forEach((section, i) => {
 
   if (i) {
     if(section.bg){
-      section.bg.style.backgroundPosition = "50% 50%";
 
       gsap.to(section.bg, {
         yPercent: -10, 
@@ -186,7 +218,6 @@ gsap.utils.toArray('.section').forEach((section, i) => {
 
   } else {
     if(section.bg){
-      section.bg.style.backgroundPosition = "50% 50%"; 
 
       gsap.to(section.bg, {
         yPercent: -10, 
@@ -236,18 +267,21 @@ borderSecondSectionTl
   .fromTo(centerBordersCenter, { width: "0px" }, { width: "100%", duration: 1.2, ease: easing2 }, 0);
 
 // 📌 ACTIVAR LA ANIMACIÓN CUANDO EL USUARIO LLEGUE A `#second-section`
-ScrollTrigger.create({
-    trigger: "#second-section",
-    start: "top 75%", // Se activa cuando el 75% de la sección entra en pantalla
-    markers: true, // 🔹 Activar para depuración (elimínalo en producción)
-    onEnter: () => {
-        console.log("🎬 Animación activada en #second-section");
-        borderSecondSectionTl.play();
-    },
-    onLeaveBack: () => {
-        console.log("🔄 Revirtiendo animación");
-        borderSecondSectionTl.reverse();
-    },
+
+document.querySelectorAll(".second-section").forEach((section, index) => {
+  ScrollTrigger.create({
+      trigger: section, // Ahora cada sección tendrá su propio trigger
+      start: "top 75%",
+      markers: false, // Elimina esto en producción
+      onEnter: () => {
+          console.log(`🎬 Animación activada en la sección ${index + 1}`);
+          borderSecondSectionTl.play();
+      },
+      onLeaveBack: () => {
+          console.log(`🔄 Revirtiendo animación en la sección ${index + 1}`);
+          borderSecondSectionTl.reverse();
+      },
+  });
 });
 
 /////
@@ -296,7 +330,7 @@ gsap.set(".swiper-slide img", { scale: 1 });
   },
 }); */
 
-var swiper = new Swiper(".mySwiperGallery", {
+var swiper_gallery = new Swiper(".swiper-gallery", {
   effect: "coverflow",
   slidesPerView: "auto",
   centeredSlides: true,
@@ -304,35 +338,39 @@ var swiper = new Swiper(".mySwiperGallery", {
   keyboard: {
     enabled: true,
   },
+  slideClass: 'swiper-slide-gallery',
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".swiper-button-next-gallery",
+    prevEl: ".swiper-button-prev-gallery",
   },
   coverflowEffect: {
-    rotate: 3, // Mantén el giro
+    rotate: 3,
     stretch: 0,
     depth: 100,
     modifier: 1,
     slideShadows: false,
   },
   on: {
-    init: function () {
-      /* swiper.update();  */
-      // Asegúrate de que los cálculos iniciales sean correctos
-    },
-  /*   slideChangeTransitionStart: function () {
-      swiper.update(); // Recalcula dinámicamente el tamaño al cambiar slides
-    }, */
-   /*  slideChangeTransitionEnd: function () {
-      swiper.update(); // Evita desalineaciones al terminar la transición
-    }, */
-  },
+    slideChangeTransitionEnd: function (swiper) {
+      console.log('aca', swiper.activeIndex); // Verifica si el evento se dispara
+      swiper.update(); // Actualiza Swiper al terminar el cambio de slide
+    }
+  }
 });
 
 
+// Asegurar que los botones existen antes de agregar eventos
+document.querySelector(".swiper-button-next-gallery")?.addEventListener("click", () => {
+  setTimeout(() => swiper_gallery.update(), 100); // Espera un poco y actualiza Swiper
+});
+
+document.querySelector(".swiper-button-prev-gallery")?.addEventListener("click", () => {
+  setTimeout(() => swiper_gallery.update(), 100); // Espera un poco y actualiza Swiper
+});
 
 
-gsap.set(".flair", { xPercent: -50, yPercent: -50, opacity: 0 }); // Inicialmente oculto
+// Inicialmente, el botón está completamente oculto
+gsap.set(".flair", { xPercent: -50, yPercent: -50, scale: 0, opacity: 0 });
 
 let xTo = gsap.quickTo(".flair", "x", { duration: 0.2, ease: "power3" }),
     yTo = gsap.quickTo(".flair", "y", { duration: 0.2, ease: "power3" });
@@ -340,26 +378,45 @@ let xTo = gsap.quickTo(".flair", "x", { duration: 0.2, ease: "power3" }),
 const section = document.getElementById("fifth-section");
 const flair = document.querySelector(".flair");
 
-// Detectar movimiento solo dentro de la sección
-section.addEventListener("mousemove", (e) => {
-  let bounds = section.getBoundingClientRect(); // Obtiene los límites del contenedor
-
-  // Calcula la posición del cursor relativa al viewport
-  let x = e.clientX;
-  let y = e.clientY;
-
-  // Mueve la imagen solo si está dentro de los límites de la sección
-  if (
-    x >= bounds.left && 
-    x <= bounds.right && 
-    y >= bounds.top && 
-    y <= bounds.bottom
-  ) {
-    xTo(x);
-    yTo(y + window.scrollY);
-    gsap.to(flair, { opacity: 1, duration: 0.2, ease: "power3" }); // Aparece
-  }
+section.addEventListener("mouseenter", () => {
+  // Mostrar flair al entrar en la sección
+  gsap.to(flair, { scale: 1, opacity: 1, duration: 0.2, ease: "power3" });
 });
+
+section.addEventListener("mousemove", (e) => {
+  let bounds = section.getBoundingClientRect(); // Límites de la sección
+
+  // Coordenadas del cursor dentro de la sección
+  let x = e.clientX - bounds.left;
+  let y = e.clientY - bounds.top;
+
+  // Calcula la distancia del cursor a los bordes
+  let distX = Math.min(x, bounds.width - x);
+  let distY = Math.min(y, bounds.height - y);
+
+  // Normaliza la distancia para definir la visibilidad
+  let proximity = Math.max(0, Math.min(1, Math.min(distX / 50, distY / 50))); // 50px es el rango antes de achicar
+
+  // Mover el botón y ajustar tamaño/opacidad
+  xTo(bounds.left + x);
+  yTo(bounds.top + y + window.scrollY);
+
+  gsap.to(flair, {
+    scale: proximity,
+    opacity: proximity,
+    duration: 0.1,
+    ease: "power3",
+  });
+});
+
+// Ocultar completamente cuando el cursor sale de la sección
+section.addEventListener("mouseleave", () => {
+  gsap.to(flair, { scale: 0, opacity: 0, duration: 0.3, ease: "power3" });
+});
+
+
+
+
 
 /////////////////////////////
 console.clear();
@@ -372,34 +429,41 @@ ScrollSmoother.create({
   smoothTouch: 0.1
 });
 
+setTimeout(() => {
+  document.querySelector('.scroll-wrapper').style.overflow = 'initial';
+}, 100);
+
 const cards = gsap.utils.toArray(".stackingcard");
 
+
+
 cards.forEach((card, i) => {
+  console.log(i);
+  
   gsap.to(card, {
-    scale: 1,
+    scale: 1.01,
     ease: "none",
     scrollTrigger: {
       trigger: card,
-      start: "top-=" * i + " 40%",
-    
+      start: `top-=${i * 100} 40%`, // Ajuste aquí para calcular correctamente el inicio
       scrub: true
     }
   });
   ScrollTrigger.create({
     trigger: card,
+    start:  `top +=${i * 40}px`, // Cambia solo el `start` de la primera carta
     end: "top center",
     endTrigger: ".end-element",
     pin: true,
     pinSpacing: false,
-    markers: true,
-    id: "card-" + i
+    false: true,
+    id: `card-${i}`
   });
 });
 
-/* ScrollTrigger.addEventListener("refresh", () => {
-  document.querySelectorAll(".pin-spacer").forEach(spacer => {
-    spacer.style.marginBottom = "60px";
-  });
-}); */
+
 
 ScrollTrigger.refresh();
+
+/*********************************************** */
+
